@@ -1,0 +1,99 @@
+{% extends "base.html" %}
+
+{% block extra_style %}
+.done-wrap { text-align: center; padding: 2.5rem 0 1.5rem; }
+.done-icon {
+  width: 64px; height: 64px;
+  background: #eaf3de;
+  border: 0.5px solid rgba(59,109,17,0.2);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 1.25rem;
+}
+.done-icon svg { width: 28px; height: 28px; }
+.done-wrap h2 { font-size: 24px; font-weight: 500; margin-bottom: 0.4rem; }
+.done-wrap .subtitle { font-size: 15px; color: var(--text-muted); margin-bottom: 2rem; }
+
+.status-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  max-width: 420px;
+  margin: 0 auto 2rem;
+}
+.status-tile {
+  background: var(--surface);
+  border: 0.5px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1rem;
+  text-align: left;
+}
+.status-tile.complete { border-color: rgba(59,109,17,0.3); background: #fafff7; }
+.status-tile .tile-label { font-size: 12px; color: var(--text-muted); margin-bottom: 2px; }
+.status-tile .tile-value { font-size: 18px; font-weight: 500; }
+.status-tile .tile-check { font-size: 12px; color: #3B6D11; margin-top: 4px; }
+.status-tile .tile-pending { font-size: 12px; color: var(--text-muted); margin-top: 4px; }
+
+.action-row { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+.btn {
+  display: inline-block; text-decoration: none;
+  padding: 0.65rem 1.5rem; border-radius: var(--radius-md);
+  font-size: 14px; font-weight: 500;
+  border: 0.5px solid var(--border-strong);
+  color: var(--text); background: transparent;
+  transition: background 0.15s;
+}
+.btn:hover { background: var(--accent-light); border-color: var(--accent-mid); color: var(--accent); }
+.btn.primary { background: var(--accent); color: white; border-color: var(--accent); }
+.btn.primary:hover { background: #3C3489; border-color: #3C3489; color: white; }
+{% endblock %}
+
+{% block content %}
+<div class="done-wrap">
+  <div class="done-icon">
+    <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M5 14.5L11 20.5L23 8" stroke="#3B6D11" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </div>
+  <h2>Teil {{ finished_part }} abgeschlossen</h2>
+  <p class="subtitle">
+    {% if all_done %}
+      Sie haben die gesamte Studie abgeschlossen. Vielen Dank für Ihre Teilnahme!
+    {% else %}
+      Gut gemacht! Kehren Sie zur Übersicht zurück, um mit dem anderen Teil fortzufahren.
+    {% endif %}
+  </p>
+
+  <div class="status-grid">
+    <div class="status-tile {% if p1_done == p1_total %}complete{% endif %}">
+      <div class="tile-label">Teil 1 - Bewertung einschätzen</div>
+      <div class="tile-value">{{ p1_done }} / {{ p1_total }}</div>
+      {% if p1_done == p1_total %}
+        <div class="tile-check">Abgeschlossen</div>
+      {% else %}
+        <div class="tile-pending">{{ p1_total - p1_done }} verbleibend</div>
+      {% endif %}
+    </div>
+    <div class="status-tile {% if p2_done == p2_total %}complete{% endif %}">
+      <div class="tile-label">Teil 2 - Eigene Annotation</div>
+      <div class="tile-value">{{ p2_done }} / {{ p2_total }}</div>
+      {% if p2_done == p2_total %}
+        <div class="tile-check">Abgeschlossen</div>
+      {% else %}
+        <div class="tile-pending">{{ p2_total - p2_done }} verbleibend</div>
+      {% endif %}
+    </div>
+  </div>
+
+  <div class="action-row">
+    <a href="/" class="btn">Zur Übersicht</a>
+    {% if not all_done %}
+      {% if finished_part == "1" and p2_done < p2_total %}
+        <a href="/part2" class="btn primary">Teil 2 starten</a>
+      {% elif finished_part == "2" and p1_done < p1_total %}
+        <a href="/part1" class="btn primary">Teil 1 starten</a>
+      {% endif %}
+    {% endif %}
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,14 @@
+3.  **Evaluate Coherence:**
+    *   *Sentence 1:* "Da ich die meis Social Media Apps nicht nutze, maximal ein Stunde." -> This is grammatically broken. It starts with "Da" (Because) but the second part "maximal ein Stunde" doesn't form a complete clause that completes the thought logically without a verb. It reads like: "Since I don't use most Social Media Apps, [I use them] max one hour." But the connection is missing.
+    *   *Sentence 2:* "Meistens nutze isch das internet nicht viel." -> Typo "isch" instead of "ich" perhaps? "nicht viel" contradicts later sentences where they list apps. Also, "nacheinander" isn't there, but the logic jumps.
+    *   *Sentence 3:* "Ich benutze es, um Musik zu hören und Formel 1 zu schauen." -> "es" refers to Internet presumably, but the previous sentence said "not much". Now we say we do listen to music. The connection between 1 and 3 is weak due to Sentence 2 being contradictory or unclear.
+    *   *Sentence 4:* "Ich nutze Vimeo, youtube, sports connect und amazon prime Video." -> Lists apps. Contradicts Sentence 1 ("meis... nicht nutze"). If I don't use most apps, but then list 4 specific streaming ones? Also, "Vimeo, youtube, sports connect und amazon prime Video" are not typical "Social Media Apps" in this context (streaming services). The logical classification is confused.
+    *   *Overall Flow:* The text has very weak cohesion. Sentence 1 is a fragment. Sentence 2 contradicts Sentence 3 implicitly. Sentence 4 contradicts Sentence 1 (if Vimeo/Prime aren't 'most apps', fine, but the transition isn't signaled). The pronouns ("es", "das") are used somewhat, but the logical progression (Usage -> Why -> Specific Apps) is muddled by contradictions and lack of clear linking words explaining the shift from "not using many" to "using these specific ones".
+    *   *Level Context:* "Anfänger" (Beginner). Expectations are lower. However, coherence requires some basic structure.
+    *   *Score Decision:*
+        *   Score 5: Logical, clear transitions. (No)
+        *   Score 4: Mostly logical, minor jumps. (No, too many structural breaks).
+        *   Score 3: Understandable, loose connections. Maybe? It's understandable enough for a beginner, but the first sentence is a fragment that disconnects immediately.
+        *   Score 2: Frequent jumps, poorly connected. The first sentence ends abruptly ("maximal ein Stunde."). Then a new thought starts. The definition of "Apps" shifts between "Social Media" and "Streaming".
+        *   Score 1: Very poor, random/disconnected.
+        *   *Refinement:* Is it really a 2 or a 3?

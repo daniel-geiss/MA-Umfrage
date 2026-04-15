@@ -1,0 +1,28 @@
+Logical Flow Analysis:
+            *   Starts with general information seeking.
+            *   Moves to reading news on phone.
+            *   Clarifies "news in social media".
+            *   Shifts to leisure ("Zur Unterhaltung...").
+            *   Lists activities (Vimeo, Music, Series).
+            *   Summarizes apps (WhatsApp, Vimeo, Insta).
+            *   Explains usage of WhatsApp.
+            *   General statement about going online.
+            *   Ends with another activity statement (Learning?).
+            
+            Connections:
+            *   "Ich informiere mich..." -> "Ich lese Nachrichten..." (Topic consistency).
+            *   "sozialen Medien" links back to context.
+            *   "Zur Unterhaltung" introduces a new category logically following information seeking or parallel to it.
+            *   List of apps connects well to previous sentences mentioning WhatsApp/Vimeo implicitly or explicitly ("schreibe ich mit Familie").
+            *   The transition between sections is handled via paragraph breaks which act as micro-structural cues.
+            
+            Issues affecting Coherence:
+            *   Run-on sentence: "Zur Unterhaltungbenutze ich mein Handy." (Missing space). This looks like a typo, not necessarily a coherence break, though it makes reading slightly jarring.
+            *   Paragraphing suggests distinct thought blocks, which helps structure.
+            *   The last sentence "Anchmal benutze ich auch den Lernen" (Meant: Manchmal benutze ich es auch zum Lernen?) is disconnected syntactically but semantically relates to the "Apps" section or general device usage.
+            
+            Overall Assessment:
+            The ideas follow a clear progression: Information -> Entertainment -> Tools/Apps -> Specific uses -> General summary.
+            Transitions exist (e.g., "Wichtige Apps...", "Zur Unterhaltung...").
+            It is not perfect (typographical errors, slight abruptness in some shifts), but the logical thread holds up well for a learner text.
+            Score: 4 (Moderate/Good coherence). Ideas flow naturally, connections are clear despite learner constraints. It does not need to be native-perfect.

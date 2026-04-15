@@ -1,0 +1,13 @@
+    *   Coherence Score: It follows a descriptive structure (Selection -> Properties -> Material -> Hope -> Function -> Design -> Usage -> Advantage). This is a logical progression. The breaks are due to linguistic errors (typos/grammar) rather than lack of logical connection between ideas.
+    *   However, strict coherence evaluation: "Weil I schwarze Lieb" makes zero sense and breaks the chain of logic momentarily. But the overall trajectory is clear.
+    *   Let's look at the Rubric for 3: "Some connections... parts feel disjointed... noticeable gaps".
+    *   Rubric for 4: "Mostly logical progression. Minor jumps... overall easy to follow."
+    *   The text is extremely fragmented. Every sentence ends with a period. No conjunctions between sentences. "Ich habe gewählt..." -> "Die Farbe ist..." -> "Die Form ist...". These are parallel structures which aids some coherence. But "weil I schwarze Lieb" is a major disruption.
+    *   Let's lean towards 3 or 4. Given it's a learner text, 4 seems appropriate if we account for "language level leniency". The prompt says: "You should be more lenient with students in lower language levels." and "A score of 5 should be given whenever the text is clearly well-structured... even if it is not perfect." Wait, 5 is "Good coherence... transitions guide the reader smoothly".
+    *   Text has almost *no* transition words between sentences (except implicit topic continuity). "Ich habe gewählt..." -> "Die Farbe...". That's a shift from action to description.
+    *   Sentence 6: "...gerne recycelte Materialien." -> Good semantic link to environment/hope.
+    *   Sentence 7: "Die Function weiß nicht genau..." -> Semantic link to purpose.
+    *   Sentence 8: "Ich finde es ein schönes Design..." -> Link to aesthetic.
+    *   Sentence 9 & 10: "Weihnachtsdeko... Ein Vorteil..." -> Functional application + benefit.
+    *   It moves from Selection -> Description -> Sentiment -> Material -> Purpose -> Application -> Advantage. This is a coherent outline.
+    *   Score: 4. It follows a theme (object description) and moves through aspects logically despite grammatical stumbles.

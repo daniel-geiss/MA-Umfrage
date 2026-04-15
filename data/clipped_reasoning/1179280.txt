@@ -1,0 +1,22 @@
+**Evaluate Coherence:**
+    *   **Sentence 1:** "Meinem Land heißtBleand." -> "Mein Land heißt Deutschland"? This is immediately confusing. "Meinem Land" (Dative) + "heißt" (3rd sg nominative/impers). Nonsensical meaning.
+    *   **Sentence 2:** "In meinem Land, wir haben ein Kamerunische er heißt Bettina Toselli." -> Switches subjects abruptly. "Wir haben" (We have) then "er heißt" (He/She is named). Who is in what country? Confusing perspective shift.
+    *   **Sentence 3:** "Bettina Toselli arbeitet als Computer-Ingenieur aber ist auch ein geniale erfinder." -> Subject "Er" later used here for "Bettina" (female name), though gender agreement is wrong anyway ("geniale"). Idea flow is okay (Job -> Invention), but pronoun confusion ("Computer-Ingenieur" usually singular, "geniale" plural?).
+    *   **Sentence 4:** "Er hat etwas Tolles erfunden zumbeispiel: das Krebs Kade AG & Co. OHG , ein medizinisch Tablet etc..." -> "Krebs Kade AG" (Cancer something?) seems like nonsense business name. "etc" implies unfinished thought.
+    *   **Sentence 5:** "Er hat im 2009 das Krebs Kade AG & Co. OHG erfunden." -> Repetition of the previous sentence with no new information added logically. Just restating.
+
+    *   **Logical Flow:**
+        *   Starts with land naming (unclear).
+        *   Introduce person (Bettina).
+        *   Describe job/invention.
+        *   Give example of invention.
+        *   Restate invention date/naming.
+    *   **Connections:** There is a nominal connection between the intro and the person introduced. However, the repetition of "Krebs Kade AG" without explanation makes the logic loop rather than progress. The phrase "Medizinisch Tablet etc..." feels disconnected from the "AG & Co." concept without a clear link (Is it a company making tablets? Is the tablet the company?).
+    *   **Transitions:** Weak. "aber" is used but the contrast isn't super clear due to grammar/syntax errors masking intent. Repetition of the core noun phrase ("Krebs Kade AG & Co. OHG") in consecutive sentences suggests a lack of variation or logical progression.
+    *   **Overall Impression:** The ideas exist (Intro location -> Person -> Job -> Invention -> Date), but the way they connect is severely hampered by nonsensical elements ("Meinem Land heißtBleand", "Kamerunische er", "Krebs Kade AG"). It feels disjointed because the reader cannot trust the semantic content to form a chain. It is understandable at a very basic gist level (Person invented something), but the coherence breaks down frequently due to non-sequiturs within the sentences themselves affecting the flow of the next sentence.
+    *   **Scoring:**
+        *   5: Clearly well-structured. (No)
+        *   4: Mostly logical. Minor jumps. (No, too many weird gaps)
+        *   3: Some connections exist, parts feel disjointed. Understendable but noticeable issues. (Maybe? The structure is there: Location -> Person -> Activity -> Example. But the specific phrasing makes logical chains hard to follow.)
+        *   2: Frequent jumps between ideas. Sentences poorly connected. Hard to follow. (This feels more accurate. "Meinem Land heißtBleand" kills immediate trust. Repetition of the noun phrase without development is weak coherence.)
+        *   1: Little or no logical structure. Random. (The structure *is* there roughly: Subject -> Action -> Detail. But is it "Random"? No, there is an attempt at narrative.)

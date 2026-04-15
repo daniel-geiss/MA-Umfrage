@@ -1,0 +1,405 @@
+{% extends "base.html" %}
+
+{% block extra_style %}
+.progress-bar-wrap {
+  background: var(--border);
+  border-radius: 4px;
+  height: 4px;
+  margin-bottom: 2rem;
+  overflow: hidden;
+}
+.progress-bar-fill {
+  height: 100%;
+  background: var(--accent);
+  border-radius: 4px;
+  width: {{ ((item_index / total) * 100)|int }}%;
+}
+.progress-label { font-size: 13px; color: var(--text-muted); margin-bottom: 0.5rem; }
+
+.example-card {
+  background: var(--surface);
+  border: 0.5px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+.example-header { display: flex; align-items: center; gap: 8px; margin-bottom: 1.25rem; flex-wrap: wrap; }
+.badge {
+  display: inline-block; font-size: 12px; font-weight: 500;
+  padding: 3px 10px; border-radius: var(--radius-md); letter-spacing: 0.03em;
+}
+.badge-level { background: var(--accent-light); color: #3C3489; border: 0.5px solid rgba(83,74,183,0.2); }
+.badge-id { background: #f1efe8; color: #444441; border: 0.5px solid rgba(0,0,0,0.1); font-family: monospace; }
+
+.example-text {
+  font-size: 17px; line-height: 1.75; color: var(--text);
+  padding: 1rem; background: #f9f8f6;
+  border-radius: var(--radius-md);
+  border-left: 3px solid var(--accent-mid);
+  font-style: italic;
+  white-space: pre-wrap
+}
+
+.annotation-section {
+  background: var(--surface);
+  border: 0.5px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+.annotation-section h3 { font-size: 16px; font-weight: 500; margin-bottom: 0.4rem; }
+.annotation-section .section-desc { font-size: 14px; color: var(--text-muted); margin-bottom: 1.5rem; }
+
+.field-group { margin-bottom: 1.5rem; }
+.field-group:last-child { margin-bottom: 0; }
+.field-group label { display: block; font-size: 14px; font-weight: 500; margin-bottom: 6px; color: var(--text); }
+.field-group .field-hint { font-size: 13px; color: var(--text-muted); font-weight: 400; margin-bottom: 8px; display: block; }
+
+.grading-label-row {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 6px;
+}
+.grading-label-row label { margin-bottom: 0; }
+.rubric-btn {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-size: 12px; font-weight: 500;
+  color: #3C3489;
+  background: var(--accent-light);
+  border: 0.5px solid rgba(83,74,183,0.25);
+  border-radius: var(--radius-md);
+  padding: 3px 10px;
+  cursor: pointer;
+  transition: background 0.1s;
+  white-space: nowrap;
+}
+.rubric-btn:hover { background: #CECBF6; }
+.rubric-btn svg { width: 13px; height: 13px; flex-shrink: 0; }
+
+.star-group { display: flex; gap: 6px; }
+.star-group input[type="radio"] { display: none; }
+.star-group label {
+  cursor: pointer;
+  width: 40px; height: 40px;
+  border: 0.5px solid var(--border-strong);
+  border-radius: var(--radius-md);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 15px; font-weight: 500;
+  color: var(--text-muted); background: var(--bg);
+  transition: all 0.1s; margin-bottom: 0; user-select: none;
+}
+.star-group label:hover { border-color: var(--accent-mid); color: var(--accent); background: var(--accent-light); }
+.star-group input[type="radio"]:checked + label { background: var(--accent); border-color: var(--accent); color: white; }
+.scale-hint {
+  display: flex; justify-content: space-between;
+  font-size: 12px; color: var(--text-muted);
+  margin-top: 4px;
+  width: calc(5 * 40px + 4 * 6px);
+}
+
+textarea {
+  width: 100%;
+  border: 0.5px solid var(--border-strong);
+  border-radius: var(--radius-md);
+  padding: 0.75rem 0.875rem;
+  font-size: 15px; font-family: inherit;
+  color: var(--text); background: var(--bg);
+  resize: vertical; line-height: 1.6;
+  transition: border-color 0.15s;
+}
+textarea:focus { outline: none; border-color: var(--accent-mid); }
+
+.divider { border: none; border-top: 0.5px solid var(--border); margin: 1.25rem 0; }
+
+.form-actions { display: flex; justify-content: flex-end; align-items: center; gap: 1rem; margin-top: 1.5rem; }
+.required-note { font-size: 13px; color: var(--text-muted); }
+
+.submit-btn {
+  background: var(--accent); color: white; border: none;
+  padding: 0.75rem 2rem; border-radius: var(--radius-md);
+  font-size: 15px; font-weight: 500; cursor: pointer;
+  letter-spacing: 0.01em; transition: background 0.15s;
+}
+.submit-btn:hover { background: #3C3489; }
+.submit-btn:disabled { background: var(--border); color: var(--text-muted); cursor: not-allowed; }
+
+/* ── Modal overlay ── */
+.modal-backdrop {
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,0.45);
+  display: flex; align-items: center; justify-content: center;
+  padding: 1.5rem;
+  z-index: 100;
+  opacity: 0; pointer-events: none;
+  transition: opacity 0.18s;
+}
+.modal-backdrop.visible { opacity: 1; pointer-events: all; }
+
+.modal {
+  background: var(--surface);
+  border: 0.5px solid var(--border);
+  border-radius: var(--radius-lg);
+  max-width: 600px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 1.75rem;
+  transform: translateY(10px);
+  transition: transform 0.18s;
+}
+.modal-backdrop.visible .modal { transform: translateY(0); }
+
+.modal-header {
+  display: flex; align-items: flex-start; justify-content: space-between;
+  gap: 1rem; margin-bottom: 1.25rem;
+}
+.modal-header h2 { font-size: 17px; font-weight: 500; }
+.modal-close {
+  background: none; border: none; cursor: pointer;
+  color: var(--text-muted); padding: 2px;
+  font-size: 20px; line-height: 1; flex-shrink: 0;
+  transition: color 0.1s;
+}
+.modal-close:hover { color: var(--text); }
+
+.modal-intro { font-size: 14px; color: var(--text-muted); margin-bottom: 1.25rem; line-height: 1.6; }
+
+.rubric-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+.rubric-table th {
+  text-align: left; font-weight: 500; font-size: 12px;
+  text-transform: uppercase; letter-spacing: 0.06em;
+  color: var(--text-muted); padding: 0 0.75rem 0.6rem;
+  border-bottom: 0.5px solid var(--border);
+}
+.rubric-table th:first-child { padding-left: 0; width: 52px; }
+.rubric-table td {
+  padding: 0.75rem 0.75rem;
+  border-bottom: 0.5px solid var(--border);
+  vertical-align: top;
+  color: var(--text);
+  line-height: 1.55;
+}
+.rubric-table tr:last-child td { border-bottom: none; }
+.rubric-table td:first-child { padding-left: 0; }
+
+.grade-chip {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 32px; height: 32px;
+  border-radius: var(--radius-md);
+  font-size: 15px; font-weight: 500;
+}
+.grade-1 { background: #fcebeb; color: #A32D2D; border: 0.5px solid rgba(163,45,45,0.2); }
+.grade-2 { background: #FAEEDA; color: #854F0B; border: 0.5px solid rgba(186,117,23,0.2); }
+.grade-3 { background: #f1efe8; color: #5F5E5A; border: 0.5px solid rgba(0,0,0,0.1); }
+.grade-4 { background: var(--accent-light); color: #3C3489; border: 0.5px solid rgba(83,74,183,0.2); }
+.grade-5 { background: #eaf3de; color: #3B6D11; border: 0.5px solid rgba(59,109,17,0.2); }
+
+.grade-label { font-size: 12px; font-weight: 500; margin-top: 2px; display: block; }
+.grade-1 .grade-label { color: #A32D2D; }
+.grade-2 .grade-label { color: #854F0B; }
+.grade-3 .grade-label { color: #5F5E5A; }
+.grade-4 .grade-label { color: #3C3489; }
+.grade-5 .grade-label { color: #3B6D11; }
+
+.modal-footer { margin-top: 1.5rem; display: flex; justify-content: flex-end; }
+.modal-confirm {
+  background: var(--accent); color: white; border: none;
+  padding: 0.65rem 1.5rem; border-radius: var(--radius-md);
+  font-size: 14px; font-weight: 500; cursor: pointer;
+  transition: background 0.15s;
+}
+.modal-confirm:hover { background: #3C3489; }
+{% endblock %}
+
+{% block content %}
+
+<!-- Rubric modal -->
+<div class="modal-backdrop" id="rubric-backdrop" role="dialog" aria-modal="true" aria-labelledby="rubric-title">
+  <div class="modal">
+    <div class="modal-header">
+      <h2 id="rubric-title">Bewertungsskala: 1–5</h2>
+      <button class="modal-close" id="modal-close-btn" aria-label="Schliessen">&times;</button>
+    </div>
+    <p class="modal-intro">
+      Verwenden Sie die folgende Skala, wenn Sie die sprachliche Qualität eines Beispiels bewerten.
+      Beachten Sie sowohl grammatikalische Korrektheit als auch Klarheit und Angemessenheit des Ausdrucks.
+    </p>
+    <table class="rubric-table">
+      <thead>
+        <tr>
+          <th>Note</th>
+          <th>Bezeichnung</th>
+          <th>Beschreibung</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><div class="grade-chip grade-1">1</div></td>
+          <td><strong>Sehr schlecht</strong></td>
+          <td>Schwerwiegende grammatikalische Fehler, die das Verständnis erheblich beeinträchtigen. Grundlegende Strukturen werden nicht beherrscht. Eine sinnvolle Kommunikation ist kaum möglich.</td>
+        </tr>
+        <tr>
+          <td><div class="grade-chip grade-2">2</div></td>
+          <td><strong>Mangelhaft</strong></td>
+          <td>Deutliche Fehler in zentralen Bereichen (z. B. Kongruenz, Tempus, Wortstellung), die den Ausdruck spürbar stören. Der Sinn ist trotzdem erkennbar, aber die sprachliche Ausführung ist deutlich fehlerhaft.</td>
+        </tr>
+        <tr>
+          <td><div class="grade-chip grade-3">3</div></td>
+          <td><strong>Ausreichend</strong></td>
+          <td>Einige Fehler vorhanden, die jedoch den Gesamtausdruck nicht grundlegend beeinträchtigen. Das Beispiel ist verständlich, weist aber merkliche Schwächen auf, die dem Sprachniveau nicht vollständig entsprechen.</td>
+        </tr>
+        <tr>
+          <td><div class="grade-chip grade-4">4</div></td>
+          <td><strong>Gut</strong></td>
+          <td>Weitgehend korrekt mit nur geringfügigen Fehlern oder leichten stilistischen Unsicherheiten. Die Aussage ist klar und dem Sprachniveau angemessen; kleinere Abweichungen beeinträchtigen die Kommunikation nicht.</td>
+        </tr>
+        <tr>
+          <td><div class="grade-chip grade-5">5</div></td>
+          <td><strong>Ausgezeichnet</strong></td>
+          <td>Fehlerfrei oder nahezu fehlerfrei. Grammatik, Wortschatz und Stil entsprechen vollständig dem angegebenen Sprachniveau. Der Ausdruck ist klar, präzise und natürlich.</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="modal-footer">
+      <button class="modal-confirm" id="modal-confirm-btn">Verstanden</button>
+    </div>
+  </div>
+</div>
+
+<div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.25rem;">
+  <p class="progress-label" style="margin:0;">Teil 2 — Beispiel {{ item_index + 1 }} von {{ total }}</p>
+  <a href="/" style="font-size:13px; color:var(--text-muted); text-decoration:none;">← Übersicht</a>
+</div>
+<div class="progress-bar-wrap">
+  <div class="progress-bar-fill"></div>
+</div>
+
+<div class="example-card">
+  <div class="example-header">
+    <span class="badge badge-level">Niveau: {{ item.level }}</span>
+    <span class="badge badge-id">{{ item.id }}</span>
+  </div>
+  <div class="example-text">{{ item.example_text }}</div>
+</div>
+
+<form method="POST" action="/part2/submit" id="annotate-form">
+  <input type="hidden" name="item_index" value="{{ item_index }}">
+
+  <div class="annotation-section">
+    <h3>Ihre Annotation</h3>
+    <p class="section-desc">Lesen Sie das obige Beispiel und vergeben Sie eine eigene Bewertung, einen Kommentar und eine Begründung.</p>
+
+    <div class="field-group">
+      <div class="grading-label-row">
+        <label>Bewertung</label>
+        <button type="button" class="rubric-btn" id="open-rubric-btn">
+          <svg viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="7" cy="7" r="6" stroke="#534AB7" stroke-width="1.2"/>
+            <path d="M7 6.5v4" stroke="#534AB7" stroke-width="1.2" stroke-linecap="round"/>
+            <circle cx="7" cy="4.5" r="0.7" fill="#534AB7"/>
+          </svg>
+          Bewertungsskala ansehen
+        </button>
+      </div>
+      <span class="field-hint">Wie würden Sie dieses Beispiel insgesamt bewerten?</span>
+      <div class="star-group" role="radiogroup" aria-label="Beispiel bewerten">
+        {% for i in range(1, 6) %}
+        <input type="radio" name="grading" id="gr_{{ i }}" value="{{ i }}" required>
+        <label for="gr_{{ i }}">{{ i }}</label>
+        {% endfor %}
+      </div>
+      <div class="scale-hint"><span>1 = sehr schlecht</span><span>5 = ausgezeichnet</span></div>
+    </div>
+
+    <hr class="divider">
+
+    <div class="field-group">
+      <label for="comment">Kommentar</label>
+      <span class="field-hint">Schreiben Sie einen kurzen Kommentar zum auffälligsten Merkmal oder Fehler in diesem Beispiel.</span>
+      <textarea name="comment" id="comment" rows="3" placeholder="z. B. Es liegt ein Fehler in der Subjekt-Verb-Kongruenz vor …" required></textarea>
+    </div>
+
+    <hr class="divider">
+
+    <div class="field-group">
+      <label for="reasoning">Begründung</label>
+      <span class="field-hint">Erläutern Sie Ihre Bewertung Schritt für Schritt. Was macht dieses Beispiel korrekt oder fehlerhaft?</span>
+      <textarea name="reasoning" id="reasoning" rows="5" placeholder="z. B. Das Subjekt ‚X' ist Singular, daher sollte das Verb …" required></textarea>
+    </div>
+
+    <hr class="divider">
+
+    <div class="field-group">
+      <label for="general_comment">Allgemeiner Kommentar <span style="font-weight:400; color:var(--text-muted);">(optional)</span></label>
+      <textarea name="general_comment" id="general_comment" rows="2" placeholder="Weitere Anmerkungen zu diesem Beispiel …"></textarea>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <span class="required-note">Alle Felder außer dem allgemeinen Kommentar sind erforderlich</span>
+    <button type="submit" class="submit-btn" id="submit-btn" disabled>
+      {% if item_index + 1 < total %}Nächstes Beispiel →{% else %}Teil 2 abschließen →{% endif %}
+    </button>
+  </div>
+</form>
+
+<script>
+  const COOKIE_KEY = 'rubric_seen';
+
+  function getCookie(name) {
+    const match = document.cookie.match(new RegExp('(?:^|; )' + name + '=([^;]*)'));
+    return match ? decodeURIComponent(match[1]) : null;
+  }
+
+  function setCookie(name, value, days) {
+    const expires = new Date(Date.now() + days * 864e5).toUTCString();
+    document.cookie = name + '=' + encodeURIComponent(value) + '; expires=' + expires + '; path=/; SameSite=Lax';
+  }
+
+  const backdrop = document.getElementById('rubric-backdrop');
+
+  function openModal() {
+    backdrop.classList.add('visible');
+    document.getElementById('modal-confirm-btn').focus();
+  }
+
+  function closeModal() {
+    backdrop.classList.remove('visible');
+    setCookie(COOKIE_KEY, '1', 365);
+  }
+
+  document.getElementById('modal-confirm-btn').addEventListener('click', closeModal);
+  document.getElementById('modal-close-btn').addEventListener('click', closeModal);
+  document.getElementById('open-rubric-btn').addEventListener('click', openModal);
+
+  backdrop.addEventListener('click', function(e) {
+    if (e.target === backdrop) closeModal();
+  });
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && backdrop.classList.contains('visible')) closeModal();
+  });
+
+  // Show automatically on first visit
+  if (!getCookie(COOKIE_KEY)) {
+    openModal();
+  }
+
+  // Form validation
+  const form = document.getElementById('annotate-form');
+  const btn  = document.getElementById('submit-btn');
+  const requiredFields = ['grading', 'comment', 'reasoning'];
+
+  function checkComplete() {
+    const allFilled = requiredFields.every(name => {
+      const els = form.querySelectorAll('[name="' + name + '"]');
+      if (els.length === 0) return false;
+      if (els[0].type === 'radio') return form.querySelector('input[name="' + name + '"]:checked');
+      return els[0].value.trim().length > 0;
+    });
+    btn.disabled = !allFilled;
+  }
+
+  form.addEventListener('change', checkComplete);
+  form.addEventListener('input', checkComplete);
+</script>
+{% endblock %}

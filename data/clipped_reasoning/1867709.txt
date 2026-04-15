@@ -1,0 +1,20 @@
+2.  **Evaluate Coherence:**
+    *   The text is a letter/email. It has a clear opening (Salutation), body (news about course, homework, sibling/sibling-figure), closing (questions back, sign-off).
+    *   Structure: Salutation -> Greeting -> News 1 (Course) -> Details (Lessons/Homework) -> News 2 (Deniz) -> Questions -> Sign-off.
+    *   Flow: Generally follows a chronological or thematic order within the paragraphs.
+    *   Issues:
+        *   "Und diesen Dienstag hatte ich meinen first Unterricht." (Sentence fragment? No, okay).
+        *   "Schreib mir mal wieder." -> "schreib" usually lowercase after greeting but capital 'S' here is fine in this context (new paragraph).
+        *   "Liebe Grüße" written as "Viele liebe Grüße" then "Mach's gut!" which are mixed.
+        *   Despite typos (e.g., "Woch" vs "Woche", "Kindergarten" for school?), the *ideas* connect logically. One topic introduces the next via narrative progression.
+        *   Transition from "Ich finde den Unterricht sehr nützlich" to "Ich muss jeden Tag meine Hausaufgaben machen, weil..." shows cause/effect logic.
+        *   Transition from personal news to asking about the recipient ("Was gibt's bei dir Neues?") is a standard epistolary transition.
+    *   Coherence Level: For a learner text, the logical structure (Intro -> Info -> Closing) is present. Ideas connect through semantic relationships (study -> homework -> improvement -> family friend Deniz -> questions). It's not perfect English/German logic due to L1 interference or typos affecting clarity (e.g. "Kindergarten" might be confusing for school age depending on context), but the *intent* and flow are understandable.
+    *   Is it a 3 or 4?
+        *   4 requires "Mostly logical progression. Minor jumps... overall easy to follow."
+        *   3 requires "Some connections... parts feel disjointed... noticeable gaps."
+        *   The text actually suffers from significant confusion points that disrupt pure coherence for a reader. For example: "Ich habe mich letzte Woche für einen Deutschkurs angemeldet. Und diesen Dienstag hatte ich meinen first Unterricht." (Typo "first" is German word used in place of German article/adjective?). "Kindergarten" for a child named Deniz is okay, but implies young age.
+        *   However, the overarching flow is: I went to a class -> lessons were good -> homework required -> My friend brother started school (wait, "Deniz hat schon mit dem Kindergarten angefangen" - does this mean he started kindergarten too? Or school?). Then "Was gibt es bei dir?".
+        *   The connection between sentences exists ("weil", "Und", "Aber").
+        *   Given the learner level note ("cut them some slack"), the structural coherence is relatively strong despite linguistic noise. The text moves linearly through topics.
+        *   Score choice: 4 seems appropriate because the narrative thread is visible (Course start -> Lessons -> Homework -> Sibling/Deniz -> Closing). It is not disjointed enough for a 3.

@@ -1,0 +1,20 @@
+**Coherence Evaluation:**
+1.  **Logical flow:** The text starts with a greeting, moves to travel plans (Bari), explains activities there (conference), transitions to personal health update (new topic), asks for updates back, ends with sign-off. This is a standard email structure.
+2.  **Connections:**
+    *   Sentence 2 follows Sentence 1 (explains Bari).
+    *   Sentence 3 follows (what was done in Bari - conference).
+    *   Sentence 4, 5 follow the conference topic.
+    *   Transition: "Es gibt auch etwas Neues" (There is something new too) creates a clear shift from the trip report to the current health status before closing.
+    *   Closing question and sign-off follow naturally.
+3.  **Structure:** Beginning (Greeting + Trip intro) -> Middle (Activities + Health update) -> End (Question + Farewell).
+4.  **Transitions:** Uses "aber" (contrast regarding city size/beauty), "und" (connecting speakers' actions), "auch" (adding new information).
+
+**Scoring:**
+- It has a clear beginning, middle, and end.
+- Ideas connect logically (Trip -> Conference in Trip -> Health contrast -> Greeting).
+- Despite being learner text with typos ("gefahre", "Professroern"), the coherence isn't affected significantly. It's readable.
+- Does it qualify as a '5'? "Ideas flow naturally and logically... very minor exceptions." The text is mostly coherent. The transition "Ich habe mich erkältet" connects well via "Es gibt auch etwas Neues".
+- Is it perfect? No, but it's understandable. For an intermediate learner text (C1/C2 description given), this shows good organizational skills.
+- However, looking closely at sentence 3: "Ich bin zu einer Konferenz gegangen und habe mein Vortrag gezeigt." ("shown my presentation"? Usually "gehalten" or "gezeigt" might be okay in some contexts, but semantically "held" fits better). But this is more about word choice than coherence. Coherence is about logical connection.
+- The connection between paragraphs is handled by "Es gibt auch etwas Neues".
+- The logic holds up.

@@ -1,0 +1,24 @@
+**Evaluate Coherence (Logic & Flow):**
+    *   *Structure:* The text follows a standard email structure: Greeting -> Reason/Conflict -> Proposal/Question -> Closing/Request -> Sign-off. This provides a macro-level coherence (beginning-middle-end).
+    *   *Sentence Connections:*
+        *   Greeting leads into response ("Danke für Ihre E-Mail"). Good connection.
+        *   Statement of inability ("Leider kann ich...") leads into reason ("Ich habe ein Termin..."). Good causal link implicitly.
+        *   Question about alternative time ("Geht es am Donnerstag...") connects to the rejection in the previous sentence. This forms a progression of thought.
+        *   Closing request ("Ich bitte um Rückmeldung") connects to the question asked.
+        *   Closing formula connects naturally.
+    *   *Problem Areas:* While there are severe grammatical errors (which might suggest the user didn't know the words), the *ideas* connect logically enough for a beginner. You cannot understand them perfectly, but you understand the flow: Received mail -> Can't do date X -> Have conflict -> Propose other date -> Ask feedback -> Bye.
+    *   *Level:* Level 1 (Anfänger). Expectations for perfect coherence are low. However, "can" it be followed? Yes. Is it random? No.
+    *   *Score Consideration:*
+        *   5? No, there are gaps that require mental effort to bridge because of grammar. "Sher", "kann ... nicht möglich", "habe ... absagen". These break smooth reading.
+        *   4? "Mostly logical progression." There are structural links (Thank you -> Problem -> Alternative -> Call to action). It feels like a coherent attempt despite errors.
+        *   3? "Some connections between ideas exist, but parts feel disjointed." Due to the grammatical chaos ("Ein Termin leider absagen"), the connection between having a term and being unable to go is clunky.
+        *   2? "Frequent jumps". Some sentences don't fit well syntactically.
+        *   Looking closely at the prompt's instruction: "Ideas flow naturally and logically... very minor exceptions... The text does not have topical jumps".
+        *   Here, the ideas *are* connected topically (Appointment scheduling), but the linguistic glue is weak. However, since the focus is COHERENCE of *ideas*, not grammar, the idea flow is actually quite linear. It moves from A (Can't come) to B (Why) to C (When else?) to D (Feedback).
+        *   Given the "Anfänger" context and the fact that the logical chain holds up despite the broken syntax, a 3 feels appropriate. The ideas are connected, but the transitions aren't fully successful due to the broken syntax obscuring the links. However, looking at the "Anti-Hallucination" and "Score Behavior": "Use the full scale... Choose the score that best matches the rubric".
+        *   Rubric 3: "Sufficient coherence... noticeable disconnects."
+        *   Rubric 2: "Weak coherence... hard to follow".
+        *   Is it hard to follow? With some decoding required, yes. But the sequence is clear.
+        *   Actually, looking at "Leider kann ich am 3.6. nicht möglich", this doesn't connect directly to "Ich habe ein Termin...". One implies cancellation, the other explains why.
+        *   However, compared to a random stream of words, this has structure.
+        *   Let's lean towards a 3. The ideas progress (Reasoning: Email -> Unavailability -> Conflict -> Proposal -> Request), but the links are clumsy.

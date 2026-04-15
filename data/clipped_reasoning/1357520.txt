@@ -1,0 +1,17 @@
+5.  **Coherence Score:**
+    *   1-2 range: Frequent jumps, hard to follow.
+    *   This text says "Before I had a visitor I must clean my visit". That doesn't make much sense logically. Then "Then later we must buy... and finally we must cook".
+    *   While the *topic* (preparing for guests) is consistent, the actual sentence construction creates confusion about who does what and when.
+    *   "Sauber mein Besuch" is not idiomatic.
+    *   "Vorher ich habe Besucher" -> Tense mismatch (Perfekt vs Präsens implied).
+    *   Is it understandable? With struggle, yes. The sequence is roughly: Visit/Clean -> Buy -> Cook.
+    *   However, strict adherence to coherence rubric: "Ideas flow naturally and logically." They do not here. "Sentences are clearly connected." They are barely connected by "und", "denn", "dann", etc. Here they are run-on fragments with minimal connectives.
+    *   The jump between "I have visitors" and "must clean my visit" is illogical phrasing.
+    *   Given the instruction to use the full scale and be confident: The coherence is poor because the internal logic of the specific sentences is flawed enough to confuse meaning slightly. But there is a chronological flow implied.
+    *   Let's look at the rubric again.
+        *   5: Natural flow.
+        *   4: Mostly logical, minor jumps.
+        *   3: Some connections, disjointed parts noticeable.
+        *   2: Frequent jumps, poorly connected sentences.
+        *   1: Random/disconnected.
+    *   This feels like a **2**. The semantic link exists (guests = clean, food, shop), but the syntax makes the thought process difficult to follow without decoding. "Sauber mein Besuch" is a major coherence breaker. "Vorher ich habe Besucher" (Before I had visitors?) implies past, then switches to present/future obligations abruptly.

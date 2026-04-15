@@ -1,0 +1,16 @@
+2.  **Analyze the Text for Coherence:**
+    *   Sentence 1: "Ich muss das Haus vorbereiten" (I have to prepare the house) + "aufräumen, putzen" (tidy up, clean).
+        *   *Issue:* "Das Haus vorbereiten" is odd phrasing here, usually "das Haus aufräumen" or "bereits für etwas vorbereiten". But semantically, it relates to cleaning the home.
+    *   Sentence 2: "in den Supermarkt gehen und ein paar Dinge des täglichen Bedarfs und Chips kaufen." (go to the supermarket and buy groceries and chips).
+        *   *Connection:* Buying groceries usually happens *before* cooking/eating or is part of preparing for a day/visit. It follows logically after deciding to clean/get ready, though no explicit transition connects "house prep" to "shopping". However, "Also" or implied sequence exists.
+    *   Sentence 3: "Schließlich muss ich saubere Kleidung anziehen und mich schminken." (Finally I have to dress in clean clothes and put on makeup).
+        *   *Transition:* "Schließlich" (Finally/Lastly) provides a clear temporal sequence marker.
+        *   *Logic:* Getting dressed is a logical next step after cleaning and shopping before going out.
+    *   Overall Flow: House tasks -> Shopping -> Getting Ready/Going Out. This is a list of tasks for a day.
+    *   Disconnections: The specific items in sentence 1 are slightly mixed with sentence 2 (cleaning vs buying food), but "vorbereiten" covers general house tasks. The logic is a plan for the day.
+    *   Level Context: Beginner level (Anfänger). For this level, simple lists connected by "schließlich" show basic planning skills.
+    *   Verdict: The ideas connect sequentially (Tasks -> Prep -> Final Step). Transitions exist ("schließlich"). It's understandable despite grammatical errors. Score should be reasonable (4 or 5). Let's look at the rubric.
+    *   Rubric 5: Good coherence, logical flow, minor exceptions.
+    *   Rubric 4: Mostly logical, minor jumps.
+    *   Rubric 3: Some connections, disjointed parts.
+    *   Given the "Schließlich" link and the general theme of daily routine/chore checklist, it fits well into 4-5.

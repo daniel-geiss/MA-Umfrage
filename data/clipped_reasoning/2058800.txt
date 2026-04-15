@@ -1,0 +1,18 @@
+2.  **Analyze the Input Text:**
+    *   *Text:* "Meine Erfahrung, Deutsch zu lernen, war ein bisschen schwierig, aber durch die App kann ich lernen und verstehen. Es gibt zwei Apps, die mir beim Lernen geholfen haben, nämlich die Deutsche App, wo man lernt und am Ende des Themas Aufgaben macht. Außerdem habe ich einen Neffen, mit dem wir den Sprechteil machen. Ich höre auch deutsche Podcasts und schaue Filme auf Deutsch."
+    *   *Observations on Coherence:*
+        *   Sentence 1: Introduces experience ("schwierig"), transition to solution ("durch die App"). Connection is okay (Problem -> Solution).
+        *   Sentence 2: Specifics about apps ("zwei Apps", "Deutsche App"). Connects loosely to sentence 1 ("durch die App" vs "Es gibt zwei Apps"). The logic flows: General statement -> Specific example. However, there are typos ("Deutsche App" instead of likely "Duolingo" or similar name context, but for coherence we look at links). "am Ende des Themas" is vague but connects to the app function.
+        *   Sentence 3: "Außerdem habe ich einen Neffen..." This introduces a new topic (family/friends) with "Außerdem" (Moreover). The connection to the previous sentence about apps/learning is weak. Why mention the nephew specifically here? It shifts focus from apps to people. "mit dem wir den Sprechteil machen" - unclear what they do exactly together, but it suggests practice. Transition is thematic (tools -> people).
+        *   Sentence 4: "Ich höre auch deutsche Podcasts..." Another additive connector ("auch"). Adds more resources. Flows logically as "Resources I use".
+        *   Overall Flow: Experience -> App tools -> People (Nephew) -> More Media (Podcasts/Films).
+        *   Logic: There are thematic connections (learning methods), but some sentence structures are choppy. However, for learner texts (as per instructions: "cut them some slack"), the progression (I learn -> using apps -> practicing with person -> watching/hearing media) is a logical list of strategies.
+        *   Transitions: "aber" (contrast), "namlich" (explanation), "Außerdem" (addition), "auch" (addition). These are present and functional.
+        *   Jumps: Slight jump between apps and nephew without explicit link (e.g., "to practice speaking"), though implied by "Sprechteil". But generally, it stays within the topic "How I learn German".
+        *   Verdict: Moderate to Good coherence for a learner text. Ideas connect logically via the topic of learning methods. It's not perfect English/German prose but coherent enough to follow. Score should be around 3 or 4. Given the instruction to avoid defaulting to middle scores without justification, let's look closer.
+        *   Sentence 3: "Außerdem habe ich einen Neffen, mit dem wir den Sprechteil machen." "den Sprechteil machen" is semantically odd (do the speaking part?), but the intent is clear. Does it fit the flow? Yes, it's another method.
+        *   Sentence 1 & 2: Good link.
+        *   Sentence 3 & 4: Add more methods.
+        *   Is it smooth? Mostly yes. The topic jumps slightly from "apps" to "people" to "media", but all under the umbrella of "Learning strategies".
+        *   Compared to Rubric 3 ("Some connections... parts feel disjointed") vs 4 ("Mostly logical progression... Minor jumps").
+        *   The transitions (aber, nämlich, Außerdem, auch) make it easy to follow. I would lean towards 4 because the text structure (Intro -> Detail -> Further detail -> Final detail) is consistent.

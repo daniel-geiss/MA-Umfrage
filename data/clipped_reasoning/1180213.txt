@@ -1,0 +1,15 @@
+Coherence Check:
+        1.  Start: Thanks for invitation.
+        2.  Middle: Acceptance + Good wishes + Congratulations.
+        3.  End: Closing.
+    *   Logic: Invitation received -> Thank you -> Acceptance -> Congratulate recipient (who usually invites or sends anniversary info? Usually, if she invites, she might also wish congratulations, but typically you congratulate on the *anniversary*). The text says "Invitation to your firm's anniversary" and then immediately congratulatesates to them on the 25th anniversary. This is logically sound for a reply (Thank you for inviting me, here are my birthday/congratulations wishes for the occasion).
+    *   Flow: Standard email structure. Topic stays consistent throughout (the event/invitation). Transitions are implied but clear enough for A2 level.
+    *   Score consideration: It follows a clear structure (Opening -> Body -> Closing). The logic holds up despite minor errors (capitalization, spacing).
+    *   Is it coherent? Yes. It reads like a complete message with a clear beginning, middle, and end.
+    *   Score: 4 or 5?
+    *   Rubric 5: "Ideas flow naturally and logically. Sentences are clearly connected... only very minor exceptions."
+    *   Rubric 4: "Mostly logical progression. Minor jumps... Thematically consistent."
+    *   Given it's an A2/B1 context ("Grundlegende Kenntnisse"), the structure is perfect for this level. The jump from "coming to the party" to "congratulating for the 25-year anniversary" is very tight semantically.
+    *   However, there is a slight semantic nuance: "Ich freue mich sehr und komme gern zur Feier" implies acceptance of the invitation. "Herzlichen Glückwunsch..." acknowledges the milestone. This flows well.
+    *   Are there disconnects? Not really.
+    *   Decision: 5 seems appropriate for the level, as it fulfills the communicative function smoothly without confusing the reader. But wait, checking the text again: "Herzlichen Glückwunsch zum 25-jährigen Jubiläum!" usually comes *before* accepting the invitation or alongside it. It works.

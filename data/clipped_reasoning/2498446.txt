@@ -1,0 +1,14 @@
+3.  **Evaluate Coherence:**
+    *   The text consists of 4 distinct ideas that barely connect.
+    *   Sentence 1 & 2 relate to volunteering/work.
+    *   Sentence 3 reiterates volunteering issue.
+    *   Sentence 4 & 5 jump to math/teaching skills without explaining the link. Why mention being good at math? Is it because of the volunteering? No connection provided.
+    *   There are almost no cohesive ties (referencing, logical progression) between these separate thoughts. It feels like a list of unrelated statements.
+    *   This fits the criteria for a low score (1 or 2).
+    *   Score 1: "Little or no logical structure. Ideas appear random or disconnected."
+    *   Score 2: "Frequent jumps between ideas. Sentences often feel poorly connected. Almost no connective devices are used."
+    *   Given the abrupt switch from volunteering to math skills without any bridge, a 1 or 2 is appropriate. However, there is a slight semantic link (volunteering -> working -> maybe teaching?), but the transition is non-existent. Let's lean towards 1 because the final two sentences feel like a completely new topic introduced without cohesion markers. Actually, looking at the rubric: "1 - Very poor coherence ... Ideas appear random or disconnected." vs "2 - Weak coherence ... Frequent jumps". These ideas jump frequently. But they lack *any* linking logic. The last sentence explains nothing about the previous ones. It looks like a random list of facts/beliefs. I will give it a 2 because it has sentences forming ideas, just not coherent ones. Or a 1 because it lacks flow entirely. Let's look at the "Level" context provided. Grundlegende Kenntnisse (Basic Knowledge). Even at this level, sentences should ideally relate. The jump to math is jarring.
+    *   Wait, the prompt asks me to evaluate relative to the language level. The level is basic. Does "random" apply? Usually, basic texts might show struggle with linking. But 5 topics with no links is definitely incoherent.
+    *   Let's check the rubric again. 1: "Ideas appear random or disconnected." 2: "Frequent jumps... poorly connected".
+    *   The text has 5 sentences. 1st talks about Turkey/volunteering. 2nd about helping/internship. 3rd about time. 4th about numbers/math. 5th about teaching. Sentences 4 and 5 introduce a completely new theme (math) without preparation. This is a major topical jump.
+    *   Score: 1 (Very poor coherence). The text reads like a list of isolated utterances rather than a connected narrative or argument.

@@ -1,0 +1,17 @@
+*   **Coherence Analysis:**
+        *   Starts with greeting ("guten tag").
+        *   States goal ("ich kann eine geburtagpartf organisiren").
+        *   Shifts immediately to problem ("Aber es gibt viele probleme").
+        *   Mentions specific items broken ("alle sache kaput besonderes kaffeeemaschine").
+        *   Asks question ("Können sie bltte sagen.Wo kann ich eine kaffee kaufen").
+        *   Jumps back to action ("und ich bestelle...") without clear link.
+        *   Ends abruptly with finding a solution ("Aber ich kann immer lösüng finde").
+        *   **Flow:** There is a general narrative thread (organizing a party -> having problems -> asking where to buy things -> trying to make it work -> finding solution). However, the transitions are jarring. "Alle sache kaput" is unclear. The switch from complaining about a coffee machine to ordering water to making a party is choppy. Sentence boundaries often lack punctuation or capitalization (though this is a separate issue, it affects coherence flow too).
+        *   **Connections:** "Aber" is used frequently to try to link ideas, but the logic is sometimes shaky (Why does buying coffee require ordering Gala water first? Does the broken machine lead directly to "I order water"?). It feels like spoken stream-of-consciousness transcribed poorly.
+        *   **Level Consideration:** At a beginner level (Grundlegende Kenntnisse), expecting perfect coherence is impossible. The prompt says "Always ask yourself the question 'Is the text good enough for the level?'". For a beginner, expressing an intention and listing obstacles counts as some coherence. However, the logical jumps are quite distinct.
+        *   **Comparison to Rubric:**
+            *   Is it 5? No. Not smooth.
+            *   Is it 4? No. Not mostly logical; connections feel forced ("bestelle eine Gala wasser" vs context of broken machine).
+            *   Is it 3? Maybe. Some connections exist (party -> problems -> solution search), but it's disjointed. Understandable but requires effort.
+            *   Is it 2? Sentences often feel poorly connected. "Wo kann ich eine kaffee kaufen" is a sudden shift after stating the machine needs fixing. The ending "immer lösüng finde" is grammatically wrong and feels tacked on.
+            *   Decision: The text straddles 2 and 3. The ideas *are* related (party, organization, problems, solution), but the execution makes it feel fragmented. Given the instruction to be lenient for lower levels ("cut them some slack"), I should probably lean towards 3 rather than 2, as the core message (Party planning -> Obstacles -> Resolution attempt) is visible despite the chaos.

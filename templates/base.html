@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sprachliche Bewertungsstudie</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #f9f8f6;
+      --surface: #ffffff;
+      --border: rgba(0,0,0,0.12);
+      --border-strong: rgba(0,0,0,0.22);
+      --text: #1a1a18;
+      --text-muted: #6b6b67;
+      --accent: #534AB7;
+      --accent-light: #EEEDFE;
+      --accent-mid: #7F77DD;
+      --radius-md: 8px;
+      --radius-lg: 12px;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 16px;
+      line-height: 1.7;
+      min-height: 100vh;
+    }
+
+    .page-wrap {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 5rem;
+    }
+
+    .site-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 2.5rem;
+      padding-bottom: 1rem;
+      border-bottom: 0.5px solid var(--border);
+    }
+
+    .site-header .logo {
+      width: 28px; height: 28px;
+      background: var(--accent);
+      border-radius: 6px;
+      display: flex; align-items: center; justify-content: center;
+    }
+
+    .site-header .logo svg { width: 16px; height: 16px; }
+
+    .site-header h1 {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--text-muted);
+      letter-spacing: 0.01em;
+    }
+
+    {% block extra_style %}{% endblock %}
+  </style>
+</head>
+<body>
+  <div class="page-wrap">
+    <header class="site-header">
+      <div class="logo">
+        <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="2" y="2" width="5" height="5" rx="1" fill="white" fill-opacity="0.9"/>
+          <rect x="9" y="2" width="5" height="5" rx="1" fill="white" fill-opacity="0.6"/>
+          <rect x="2" y="9" width="5" height="5" rx="1" fill="white" fill-opacity="0.6"/>
+          <rect x="9" y="9" width="5" height="5" rx="1" fill="white" fill-opacity="0.9"/>
+        </svg>
+      </div>
+      <h1>Sprachliche Bewertungsstudie</h1>
+    </header>
+
+    {% block content %}{% endblock %}
+  </div>
+</body>
+</html>

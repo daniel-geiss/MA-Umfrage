@@ -1,0 +1,13 @@
+*   **Observation on Coherence:**
+        *   The text starts with a subject line (Betreff).
+        *   It opens with a greeting (Hallo).
+        *   States the purpose: wants to give away/tell about a coupon and have questions.
+        *   Lists three questions logically connected to the topic (age limit, weather policy, camera rules). These are logically related to booking/participating.
+        *   Closes with thanks and expectation of answer.
+        *   Signs off properly.
+        *   There is a logical progression: Intro -> Purpose -> Specific Questions -> Closing.
+        *   Transitions are standard email format.
+        *   Despite spelling mistakes (versessen instead of verschenken/sendern?), the *coherence* (idea flow) is intact. The ideas connect well. The questions follow logically from the introduction.
+        *   Score should reflect good coherence despite surface errors (which are grammar/vocab, not coherence). The rubric says "Do NOT evaluate grammar accuracy". So spelling errors don't necessarily lower the coherence score unless they break the meaning significantly. Here "versessen" is understandable in context (give/send) though it likely means "gespenden" or "versenden". Actually "versessen" is a verb meaning obsessed. Given the context of a coupon, maybe "verkaufen"? Regardless, the reader understands the intent (transaction/query). The logical flow remains clear.
+        *   Therefore, high coherence.
+        *   Score: 5 (Clear beginning -> middle -> end). Or 4 if considering the typos slightly disrupt the reading flow, but strict adherence to "DO NOT evaluate grammar" pushes towards 5 for logic. Let's aim for 4 or 5. The rubric for 5 says "Ideas flow naturally and logically... only very minor exceptions". This text flows naturally.

@@ -1,0 +1,241 @@
+{% extends "base.html" %}
+
+{% block extra_style %}
+.hero { margin-bottom: 2.5rem; }
+.hero h2 { font-size: 26px; font-weight: 500; margin-bottom: 0.4rem; }
+.hero p { font-size: 15px; color: var(--text-muted); max-width: 560px; }
+
+.part-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+  margin-bottom: 2rem;
+}
+
+.part-card {
+  background: var(--surface);
+  border: 0.5px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.part-card.complete {
+  border-color: rgba(59,109,17,0.3);
+  background: #fafff7;
+}
+
+.part-card-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; }
+.part-number {
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+}
+.part-title { font-size: 17px; font-weight: 500; line-height: 1.3; }
+
+.status-badge {
+  font-size: 12px;
+  font-weight: 500;
+  padding: 3px 10px;
+  border-radius: var(--radius-md);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.status-badge.not-started { background: #f1efe8; color: #5F5E5A; border: 0.5px solid rgba(0,0,0,0.1); }
+.status-badge.in-progress { background: var(--accent-light); color: #3C3489; border: 0.5px solid rgba(83,74,183,0.2); }
+.status-badge.complete { background: #eaf3de; color: #3B6D11; border: 0.5px solid rgba(59,109,17,0.2); }
+
+.part-desc { font-size: 14px; color: var(--text-muted); line-height: 1.6; }
+
+.progress-wrap { display: flex; flex-direction: column; gap: 4px; }
+.progress-row { display: flex; justify-content: space-between; align-items: center; }
+.progress-count { font-size: 13px; color: var(--text-muted); }
+.progress-bar-bg {
+  height: 4px;
+  border-radius: 4px;
+  background: var(--border);
+  overflow: hidden;
+}
+.progress-bar-fg {
+  height: 100%;
+  border-radius: 4px;
+  background: var(--accent);
+  transition: width 0.3s;
+}
+.part-card.complete .progress-bar-fg { background: #639922; }
+
+.part-btn {
+  display: inline-block;
+  text-decoration: none;
+  padding: 0.6rem 1.25rem;
+  border-radius: var(--radius-md);
+  font-size: 14px;
+  font-weight: 500;
+  text-align: center;
+  transition: background 0.15s, color 0.15s;
+  border: 0.5px solid var(--border-strong);
+  color: var(--text);
+  background: transparent;
+}
+.part-btn:hover { background: var(--accent-light); border-color: var(--accent-mid); color: var(--accent); }
+.part-btn.primary { background: var(--accent); color: white; border-color: var(--accent); }
+.part-btn.primary:hover { background: #3C3489; border-color: #3C3489; color: white; }
+.part-btn.done-btn { background: #eaf3de; color: #3B6D11; border-color: rgba(59,109,17,0.25); cursor: default; }
+
+.notice {
+  background: var(--accent-light);
+  border: 0.5px solid rgba(83,74,183,0.18);
+  border-radius: var(--radius-md);
+  padding: 0.8rem 1rem;
+  font-size: 13px;
+  color: #3C3489;
+}
+
+.overall-progress {
+  background: var(--surface);
+  border: 0.5px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1rem 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+.overall-label { font-size: 14px; color: var(--text-muted); }
+.overall-fraction { font-size: 20px; font-weight: 500; }
+{% endblock %}
+
+{% block content %}
+{% set p1_pct = ((p1_done / p1_total) * 100)|int if p1_total > 0 else 0 %}
+{% set p2_pct = ((p2_done / p2_total) * 100)|int if p2_total > 0 else 0 %}
+{% set total_done = p1_done + p2_done %}
+{% set total_all  = p1_total + p2_total %}
+
+<div class="hero">
+  <h2>Studien-Übersicht</h2>
+  <p>Bearbeiten Sie beide Teile in beliebiger Reihenfolge. Ihr Fortschritt wird automatisch gespeichert — Sie können jederzeit pausieren und später weitermachen.</p>
+</div>
+
+<div class="hero">
+  <h2>Was ist Kohärenz?</h2>
+  <p>
+    Kohärenz ist eine Eigenschaft von Text, die misst, wie logisch und einfach ein Text Ideen vermittelt. Kohärente Texte sind logisch aufgebaut und dem Leser fällt es leicht, dem Text zu folgen.
+<p>
+Die Definition von Kohärenz, die wir hier benutzen ist mehr oder weniger in drei Aspekte teilbar:
+</p>
+<p>
+Semantische Kohärenz - Ist der Text logisch aufgebaut? Passen die Sätze inhaltlich zusammen? Ist ein/e Thema/Intention zu erkennen?
+</p>
+<p>
+Kohäsion - Sind die Sätze gut verbunden? Benutzt der Schüler Bindemittel? (z.b. Deshalb, Außerdem, …)
+</p>
+<p>
+Grammatik - Ist der Text grammatikalisch konsistent? Sind Zeit und Perspektive konsistent?
+</p>
+<p>
+Kohärenz ist eine sehr subjektive Eigenschaft, und es ist nicht einfach überhaupt eine allgemeine Definition zu finden, weil jeder Leser sie ein wenig anders wahrnimmt. Damit die Bewertung von Kohärenz überhaupt sinnvoll ist, brauchen wir ein Notenschema, welches sie in den Aleitungen beider Teile der Umfrage finden können. Bitte halten Sie sich an diese.
+  </p>
+</div>
+
+<div class="overall-progress">
+  <div>
+    <div class="overall-label">Gesamtfortschritt</div>
+    <div class="overall-fraction">{{ total_done }} / {{ total_all }} Beispiele</div>
+  </div>
+  <div style="flex:1; min-width:140px;">
+    <div class="progress-bar-bg">
+      <div class="progress-bar-fg" style="width: {{ ((total_done / total_all) * 100)|int if total_all > 0 else 0 }}%;"></div>
+    </div>
+  </div>
+</div>
+
+<div class="part-grid">
+
+  {# Teil 1 #}
+  {% if p1_done == p1_total %}
+    {% set p1_status = "complete" %}
+    {% set p1_label  = "Abgeschlossen" %}
+  {% elif p1_done > 0 %}
+    {% set p1_status = "in-progress" %}
+    {% set p1_label  = "In Bearbeitung" %}
+  {% else %}
+    {% set p1_status = "not-started" %}
+    {% set p1_label  = "Noch nicht begonnen" %}
+  {% endif %}
+
+  <div class="part-card {% if p1_done == p1_total %}complete{% endif %}">
+    <div class="part-card-header">
+      <div>
+        <div class="part-number">Teil 1</div>
+        <div class="part-title">Bewertung einschätzen</div>
+      </div>
+      <span class="status-badge {{ p1_status }}">{{ p1_label }}</span>
+    </div>
+    <p class="part-desc">Jedes Beispiel enthält eine vorgegebene Bewertung, einen Kommentar und eine Begründung. Ihre Aufgabe ist es, jedes Element auf einer Skala von 1–5 einzuschätzen.</p>
+    <div class="progress-wrap">
+      <div class="progress-row">
+        <span class="progress-count">{{ p1_done }} von {{ p1_total }} abgeschlossen</span>
+      </div>
+      <div class="progress-bar-bg">
+        <div class="progress-bar-fg" style="width: {{ p1_pct }}%;"></div>
+      </div>
+    </div>
+    {% if p1_done == p1_total %}
+      <a href="/part1" class="part-btn done-btn">✓ Fertig</a>
+    {% elif p1_done > 0 %}
+      <a href="/part1" class="part-btn primary">Weiter →</a>
+    {% else %}
+      <a href="/part1" class="part-btn primary">Teil 1 starten →</a>
+    {% endif %}
+  </div>
+
+  {# Teil 2 #}
+  {% if p2_done == p2_total %}
+    {% set p2_status = "complete" %}
+    {% set p2_label  = "Abgeschlossen" %}
+  {% elif p2_done > 0 %}
+    {% set p2_status = "in-progress" %}
+    {% set p2_label  = "In Bearbeitung" %}
+  {% else %}
+    {% set p2_status = "not-started" %}
+    {% set p2_label  = "Noch nicht begonnen" %}
+  {% endif %}
+
+  <div class="part-card {% if p2_done == p2_total %}complete{% endif %}">
+    <div class="part-card-header">
+      <div>
+        <div class="part-number">Teil 2</div>
+        <div class="part-title">Eigene Annotation erstellen</div>
+      </div>
+      <span class="status-badge {{ p2_status }}">{{ p2_label }}</span>
+    </div>
+    <p class="part-desc">Für jedes Beispiel vergeben Sie selbst eine Bewertung, schreiben einen kurzen Kommentar und formulieren eine Begründung für Ihre Entscheidung.</p>
+    <div class="progress-wrap">
+      <div class="progress-row">
+        <span class="progress-count">{{ p2_done }} von {{ p2_total }} abgeschlossen</span>
+      </div>
+      <div class="progress-bar-bg">
+        <div class="progress-bar-fg" style="width: {{ p2_pct }}%;"></div>
+      </div>
+    </div>
+    {% if p2_done == p2_total %}
+      <a href="/part2" class="part-btn done-btn">✓ Fertig</a>
+    {% elif p2_done > 0 %}
+      <a href="/part2" class="part-btn primary">Weiter →</a>
+    {% else %}
+      <a href="/part2" class="part-btn primary">Teil 2 starten →</a>
+    {% endif %}
+  </div>
+
+</div>
+
+<div class="notice">
+  Ihre Antworten sind anonymisiert und werden ausschließlich über ein Cookie in Ihrem Browser identifiziert. Es werden keine personenbezogenen Daten erhoben.
+</div>
+{% endblock %}

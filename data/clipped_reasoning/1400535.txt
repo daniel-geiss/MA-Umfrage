@@ -1,0 +1,23 @@
+2.  **Analyze the Input Text:**
+    *   "Paket bitte bei Herrn Elma abgeben" (Imperative/Noun phrase title-like)
+    *   "ich bin am montag vom 10 bis 14:30 uhr nicht zu hause." (Sentence 1)
+    *   "Herr Elma darf das Paket für mich annehmen." (Sentence 2 - Logic connection via 'deshalb' implied)
+    *   "Bitte klingeln Sie bie 2 Elma." (Wait, text says "D Elma" or "bie"? Looks like "bei" typo). "klingeln Sie bei Elma".
+    *   "Vielen Dank"
+    *   "Dipesh khan" (Name signature)
+    *   There are typos ("Dipesh khan", "bie D Elma"). But focusing on *coherence*:
+        *   Idea 1: Tell someone (Elma?) to drop off package.
+        *   Idea 2: My availability (not home Mon 10-14:30).
+        *   Idea 3: Herr Elma can accept it.
+        *   Idea 4: Please ring doorbell at Elma's.
+        *   Flow: Instruction -> Reason -> Permission/Alternative -> Action instruction -> Closing.
+        *   Transitions: Implicit. "Herr Elma darf..." connects to the inability to be home. "Bitte klingeln Sie..." connects to the location.
+        *   For a beginner level (Grundlegende Kenntnisse), the text conveys meaning clearly despite lack of complex connectors like "damit", "weil", "folglich". It makes logical sense for the intended purpose.
+
+3.  **Determine Coherence Score:**
+    *   **5:** Perfect flow. (This text has typos and lacks explicit connectors like "daher" or "also", so maybe not 5).
+    *   **4:** Moderate to good. Ideas connect logically even without advanced connectors. Easy to follow.
+    *   **3:** Sufficient. Some disjointedness.
+    *   **2/1:** Very poor/random.
+    *   **Decision:** The text functions as a clear set of instructions/logic. "I'm not home -> You (or Elma) take it -> Ring bell". It is easy to follow for a native speaker. It aligns well with the elementary level context. I'll give it a **4**. The logic holds up well enough without grammatical perfection affecting the flow of thought significantly.
+    *   *Self-Correction:* The prompt says "Ideas flow naturally and logically... very minor exceptions" for 5. "Mostly logical progression. Minor jumps or slightly weak transitions" for 4. "Ich bin ... nicht zu hause. Herr Elma darf..." implies a link but misses "Deshalb". That's a weak transition. So **4** fits better than 5. Is there a jump? "Paket bitte... abgeben" stands alone. Then the explanation follows. "Bitte klingeln Sie bie..." is slightly confusing syntax ("Sie" plural/formal, "D Elma" typo). Overall, the *ideas* connect. I will stick with 4 as it is "Moderate coherence" where it is easy to follow but lacks explicit linking words. Actually, looking at the rubric: 5 requires "transitions guide the reader smoothly". Here transitions are implied. 4 says "Minor jumps or slightly weak transitions". This fits perfectly.

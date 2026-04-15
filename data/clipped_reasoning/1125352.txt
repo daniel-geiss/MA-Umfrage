@@ -1,0 +1,13 @@
+2.  **Evaluate Coherence:**
+    *   *Ideas flow?* No. Sentences seem to hop around without clear connectors.
+    *   *Transitions?* Missing or ineffective ("Bei den...", "Dann nutzen sie...", "Im Gegensatz zu...", "Natürlich ist...").
+    *   *Logical Structure:* It starts with a vague intro, jumps to minors, then general social networks, then banking, then another age group, then emails, then video telephony age (syntax breakdown), then trends. The progression is muddled.
+    *   *Level:* The prompt mentions "Language Level (Fachkundige Kenntnisse)". However, the text quality is very poor for any level regarding *coherence*. But I must follow the instruction: "You should be more lenient with students in lower language levels." Even so, the text is barely coherent.
+    *   *Decision:* This is very low coherence. It's difficult to follow the argument because sentences don't link logically and the information contradicts itself or appears randomly (e.g., "Online-Banking null" vs "E-Mails am meisten" -> "Anteil ... abgenommen hat").
+    *   *Score:* 2 or 3?
+        *   Score 3: "Some connections exist... text is still understandable... noticeable jumps."
+        *   Score 2: "Frequent jumps... poorly connected... hard to follow."
+        *   Given the gibberish-like nature of some sentences ("Verkauf von wärken"), a score of 2 seems appropriate because following the narrative line is frustrating, but it's not totally random (it tries to categorize age groups and tools). Let's aim for 2 because there is *attempted* structure (Age groups -> Tools -> Trends) but execution makes it disjointed. Wait, looking at the rubric:
+            *   3: "Sufficient coherence. Some connections... parts feel disjointed... text is still understandable".
+            *   2: "Weak coherence. Frequent jumps... Almost no connective devices... Hard to follow".
+            *   The text says "Online-Banking null" then later talks about buying things. It mentions age 16% then age 68 years old. It is quite confusing. However, it follows a rough topic sentence structure. Is it "understandable"? Yes, mostly, but disjointed. I will lean towards a 3 because it has a discernible theme (internet usage stats), even if the execution is flawed, whereas a 2 implies it's nearly unintelligible. Actually, "Die Zahl der Videotelefonie ist nach 68 Jahre alt" makes no grammatical sense, breaking coherence. "Online-Lexika" instead of Lexica. Despite the errors, does it flow? Not really. It feels like a list of facts thrown together. Let's give it a 3 (Sufficient) because the reader can guess the intent (demographics of internet use), but I need to justify why it isn't lower.
