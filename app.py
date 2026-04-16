@@ -3,9 +3,13 @@ import uuid
 import json
 import logging
 import os
+import random
+
 from datetime import datetime
 from sheets_sync import append_response, load_from_sheet
 from dataloader import get_part_2, get_part_1
+
+
 
 app = Flask(__name__)
 app.secret_key = os.environ.get("SECRET_KEY", os.urandom(24))
@@ -107,6 +111,7 @@ def part_progress(user_responses, part_key, items):
     done = sum(1 for i in range(len(items)) if f"{part_key}_{i}" in user_responses)
     return done, len(items)
 
+
 # ---------------------------------------------------------------------------
 # Routes – dashboard
 # ---------------------------------------------------------------------------
@@ -140,13 +145,14 @@ def part1():
 
     responses = load_responses()
     user_responses = responses.get(user_id, {})
-
-    for i, item in enumerate(PART1_ITEMS):
+    num_done = len(user_responses)
+    for i, item in random.sample(list(enumerate(PART1_ITEMS)), len(PART1_ITEMS)):
         if f"p1_{i}" not in user_responses:
             resp = make_response(render_template(
                 "survey.html",
                 item=item,
                 item_index=i,
+                num_done=num_done,
                 total=len(PART1_ITEMS),
             ))
             resp.set_cookie("survey_user_id", user_id, max_age=60 * 60 * 24 * 30)
@@ -189,12 +195,15 @@ def part2():
     responses = load_responses()
     user_responses = responses.get(user_id, {})
 
-    for i, item in enumerate(PART2_ITEMS):
+    num_done = len(user_responses)
+
+    for i, item in random.sample(list(enumerate(PART2_ITEMS)),len(PART2_ITEMS)):
         if f"p2_{i}" not in user_responses:
             resp = make_response(render_template(
                 "annotate.html",
                 item=item,
                 item_index=i,
+                num_done=num_done,
                 total=len(PART2_ITEMS),
             ))
             resp.set_cookie("survey_user_id", user_id, max_age=60 * 60 * 24 * 30)

@@ -12,7 +12,7 @@
   height: 100%;
   background: var(--accent);
   border-radius: 4px;
-  width: {{ ((item_index / total) * 100)|int }}%;
+  width: {{ ((num_done / total) * 100)|int }}%;
 }
 .progress-label { font-size: 13px; color: var(--text-muted); margin-bottom: 0.5rem; }
 
@@ -266,7 +266,7 @@ textarea:focus { outline: none; border-color: var(--accent-mid); }
 </div>
 
 <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.25rem;">
-  <p class="progress-label" style="margin:0;">Teil 2 — Beispiel {{ item_index + 1 }} von {{ total }}</p>
+  <p class="progress-label" style="margin:0;">Teil 2 — Beispiel {{ num_done + 1 }} von {{ total }}</p>
   <a href="/" style="font-size:13px; color:var(--text-muted); text-decoration:none;">← Übersicht</a>
 </div>
 <div class="progress-bar-wrap">
@@ -337,7 +337,7 @@ textarea:focus { outline: none; border-color: var(--accent-mid); }
   <div class="form-actions">
     <span class="required-note">Alle Felder außer dem allgemeinen Kommentar sind erforderlich</span>
     <button type="submit" class="submit-btn" id="submit-btn" disabled>
-      {% if item_index + 1 < total %}Nächstes Beispiel →{% else %}Teil 2 abschließen →{% endif %}
+      {% if num_done + 1 < total %}Nächstes Beispiel →{% else %}Teil 2 abschließen →{% endif %}
     </button>
   </div>
 </form>
