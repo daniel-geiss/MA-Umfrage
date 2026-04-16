@@ -220,8 +220,8 @@ textarea:focus { outline: none; border-color: var(--accent-mid); }
       <button class="modal-close" id="modal-close-btn" aria-label="Schliessen">&times;</button>
     </div>
     <p class="modal-intro">
-      Verwenden Sie die folgende Skala, wenn Sie die sprachliche Qualität eines Beispiels bewerten.
-      Beachten Sie sowohl grammatikalische Korrektheit als auch Klarheit und Angemessenheit des Ausdrucks.
+      Verwenden Sie die folgende Skala, wenn Sie die Kohärenz eines Beispiels bewerten.
+      Bewerten Sie <strong>ausschließlich Kohärenz</strong>, Grammakik, Rechtschreibung, und andere Eigenschaften sind nicht relevant.
     </p>
     <table class="rubric-table">
       <thead>
@@ -232,32 +232,32 @@ textarea:focus { outline: none; border-color: var(--accent-mid); }
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td><div class="grade-chip grade-1">1</div></td>
-          <td><strong>Sehr schlecht</strong></td>
-          <td>Schwerwiegende grammatikalische Fehler, die das Verständnis erheblich beeinträchtigen. Grundlegende Strukturen werden nicht beherrscht. Eine sinnvolle Kommunikation ist kaum möglich.</td>
-        </tr>
-        <tr>
-          <td><div class="grade-chip grade-2">2</div></td>
-          <td><strong>Mangelhaft</strong></td>
-          <td>Deutliche Fehler in zentralen Bereichen (z. B. Kongruenz, Tempus, Wortstellung), die den Ausdruck spürbar stören. Der Sinn ist trotzdem erkennbar, aber die sprachliche Ausführung ist deutlich fehlerhaft.</td>
-        </tr>
-        <tr>
-          <td><div class="grade-chip grade-3">3</div></td>
-          <td><strong>Ausreichend</strong></td>
-          <td>Einige Fehler vorhanden, die jedoch den Gesamtausdruck nicht grundlegend beeinträchtigen. Das Beispiel ist verständlich, weist aber merkliche Schwächen auf, die dem Sprachniveau nicht vollständig entsprechen.</td>
-        </tr>
-        <tr>
-          <td><div class="grade-chip grade-4">4</div></td>
-          <td><strong>Gut</strong></td>
-          <td>Weitgehend korrekt mit nur geringfügigen Fehlern oder leichten stilistischen Unsicherheiten. Die Aussage ist klar und dem Sprachniveau angemessen; kleinere Abweichungen beeinträchtigen die Kommunikation nicht.</td>
-        </tr>
-        <tr>
-          <td><div class="grade-chip grade-5">5</div></td>
-          <td><strong>Ausgezeichnet</strong></td>
-          <td>Fehlerfrei oder nahezu fehlerfrei. Grammatik, Wortschatz und Stil entsprechen vollständig dem angegebenen Sprachniveau. Der Ausdruck ist klar, präzise und natürlich.</td>
-        </tr>
-      </tbody>
+          <tr>
+            <td><div class="grade-chip grade-1">1</div></td>
+            <td><strong> 1 - Ungenügend</strong></td>
+            <td>Minimale bis keine logische Struktur. Der Inhalt fühlt sich zufällig und unverbunden an. </td>
+          </tr>
+          <tr>
+            <td><div class="grade-chip grade-2">2</div></td>
+            <td><strong>2 - Ausreichend</strong></td>
+            <td>Der Text springt oft zwischen Ideen. Sätze sind oft schlecht oder gar nicht verbunden. Es ist schwer dem Text zu folgen und er fühlt sich oft zusammenhanglos an.</td>
+          </tr>
+          <tr>
+            <td><div class="grade-chip grade-3">3</div></td>
+            <td><strong>3 - Befriedigend</strong></td>
+            <td>Die Ideen sind noch leicht verbunden, aber Teile des Texts fühlen sich zusammenhanglos an. Der Text ist immer noch verständlich, weist aber klare Schwächen auf.</td>
+          </tr>
+          <tr>
+            <td><div class="grade-chip grade-4">4</div></td>
+            <td><strong>4 - Gut</strong></td>
+            <td>Meistens logischer Fluss. Kleine thematische Sprünge oder abrupte Übergänge können vorkommen, aber es ist immer noch leicht, dem Text zu folgen. Thematisch konsistent.</td>
+          </tr>
+          <tr>
+            <td><div class="grade-chip grade-5">5</div></td>
+            <td><strong>5 - Sehr gut</strong></td>
+            <td>Die Ideen fließen natürlich und logisch. Die Sätze sind thematisch klar verbunden und Bindemittel leiten den Leser. Der Text enthält keine thematischen, zeitlichen oder perspektivischen Inkonsistenzen. Kleine Ausnahmen sind erlaubt.</td>
+          </tr>
+        </tbody>
     </table>
     <div class="modal-footer">
       <button class="modal-confirm" id="modal-confirm-btn">Verstanden</button>
@@ -307,23 +307,23 @@ textarea:focus { outline: none; border-color: var(--accent-mid); }
         <label for="gr_{{ i }}">{{ i }}</label>
         {% endfor %}
       </div>
-      <div class="scale-hint"><span>1 = sehr schlecht</span><span>5 = ausgezeichnet</span></div>
+      <div class="scale-hint"><span>1 = Ungenügend</span><span>5 = Sehr gut</span></div>
     </div>
 
     <hr class="divider">
 
     <div class="field-group">
       <label for="comment">Kommentar</label>
-      <span class="field-hint">Schreiben Sie einen kurzen Kommentar zum auffälligsten Merkmal oder Fehler in diesem Beispiel.</span>
-      <textarea name="comment" id="comment" rows="3" placeholder="z. B. Es liegt ein Fehler in der Subjekt-Verb-Kongruenz vor …" required></textarea>
+      <span class="field-hint">Schreiben Sie einen kurzen Kommentar zu Ihrer Bewertung.</span>
+      <textarea name="comment" id="comment" rows="3" placeholder="z. B. Der Text zeigt Mäßige Kohärenz, weil..." required></textarea>
     </div>
 
     <hr class="divider">
 
     <div class="field-group">
       <label for="reasoning">Begründung</label>
-      <span class="field-hint">Erläutern Sie Ihre Bewertung Schritt für Schritt. Was macht dieses Beispiel korrekt oder fehlerhaft?</span>
-      <textarea name="reasoning" id="reasoning" rows="5" placeholder="z. B. Das Subjekt ‚X' ist Singular, daher sollte das Verb …" required></textarea>
+      <span class="field-hint">Erläutern Sie Ihre Bewertung Schritt für Schritt. Was hindert / fördert die Kohärenz in dem Beispiel? </span>
+      <textarea name="reasoning" id="reasoning" rows="5" placeholder="z.B. Besonders ausslag gebend für die Note war... " required></textarea>
     </div>
 
     <hr class="divider">

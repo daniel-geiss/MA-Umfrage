@@ -327,11 +327,11 @@ textarea:focus { outline: none; border-color: var(--accent-mid); }
     </div>
     <div class="modal-body">
       <p>
-        In diesem Teil sehen Sie sprachliche Beispiele, die bereits automatisch bewertet wurden.
+        In diesem Teil sehen Sie Beispiele, die bereits automatisch im Bezug zu iherer Kohärenz bewertet wurden.
         Jedes Beispiel enthält eine <strong>Bewertung</strong> (1–5), einen <strong>Kommentar</strong>
         und eine <strong>Begründung</strong>. Ihre Aufgabe ist es, die Qualität dieser drei Elemente
         jeweils auf einer Skala von <strong>Sehr Angemessen</strong> bis <strong>Sehr unangebracht</strong> einzuschätzen.
-      </p>
+      </p> Die Bewertung bezieht sich ausschließlich auf die <strong>Kohärenz</strong> und sonst nichts.
 
       <div class="modal-section-title">Was Sie bewerten</div>
       <table class="criteria-table">
@@ -345,17 +345,17 @@ textarea:focus { outline: none; border-color: var(--accent-mid); }
         <tbody>
           <tr>
             <td><span class="crit-label crit-grading">Bewertung</span></td>
-            <td>Die automatisch vergebene Note (1–5) für das sprachliche Beispiel</td>
+            <td>Die automatisch vergebene Kohärenz-Note (1–5) für das Beispiel</td>
             <td>Ist die Bewertung angemessen, vertretbar oder unangebracht?</td>
           </tr>
           <tr>
             <td><span class="crit-label crit-comment">Kommentar</span></td>
-            <td>Der kurze Begleitkommentar zur auffälligsten sprachlichen Eigenschaft</td>
+            <td>Der kurze Begleitkommentar, der die Bewerung begründet.</td>
             <td>Ist der Kommentar treffend, klar formuliert und hilfreich?</td>
           </tr>
           <tr>
             <td><span class="crit-label crit-reasoning">Begründung</span></td>
-            <td>Die schrittweise Herleitung, die erklärt, warum die Note vergeben wurde</td>
+            <td>Die schrittweise Herleitung, (Kohärenz Analyse) die erklärt, warum die Note vergeben wurde</td>
             <td>Ist die Argumentation nachvollziehbar, korrekt und vollständig?</td>
           </tr>
         </tbody>
@@ -442,7 +442,7 @@ Given the topic consistency (Egypt/Germany regional disparity) and the logical p
       <div class="modal-section-title" style="margin-top:1.5rem;">Bewertungsskala der automatischen Benotung</div>
       <p style="margin-bottom:0.75rem;">
         Die automatischen Noten basieren auf der folgenden Skala — dieselbe, die Sie in Teil 2 selbst verwenden.
-        Sie hilft Ihnen einzuschätzen, ob eine vergebene Note dem tatsächlichen sprachlichen Niveau des Beispiels entspricht.
+        Sie hilft Ihnen einzuschätzen, was die automatisch vergebenen Noten bedeuten, und ob sie Passend sind.
       </p>
       <table class="rubric-table">
         <thead>
@@ -455,28 +455,28 @@ Given the topic consistency (Egypt/Germany regional disparity) and the logical p
         <tbody>
           <tr>
             <td><div class="grade-chip grade-1">1</div></td>
-            <td><strong>Sehr schlecht</strong></td>
-            <td>Schwerwiegende grammatikalische Fehler, die das Verständnis erheblich beeinträchtigen. Grundlegende Strukturen werden nicht beherrscht. Eine sinnvolle Kommunikation ist kaum möglich.</td>
+            <td><strong> 1 - Ungenügend</strong></td>
+            <td>Minimale bis keine logische Struktur. Der Inhalt fühlt sich zufällig und unverbunden an. </td>
           </tr>
           <tr>
             <td><div class="grade-chip grade-2">2</div></td>
-            <td><strong>Mangelhaft</strong></td>
-            <td>Deutliche Fehler in zentralen Bereichen (z. B. Kongruenz, Tempus, Wortstellung), die den Ausdruck spürbar stören. Der Sinn ist trotzdem erkennbar, aber die sprachliche Ausführung ist deutlich fehlerhaft.</td>
+            <td><strong>2 - Ausreichend</strong></td>
+            <td>Der Text springt oft zwischen Ideen. Sätze sind oft schlecht oder gar nicht verbunden. Es ist schwer dem Text zu folgen und er fühlt sich oft zusammenhanglos an.</td>
           </tr>
           <tr>
             <td><div class="grade-chip grade-3">3</div></td>
-            <td><strong>Ausreichend</strong></td>
-            <td>Einige Fehler vorhanden, die jedoch den Gesamtausdruck nicht grundlegend beeinträchtigen. Das Beispiel ist verständlich, weist aber merkliche Schwächen auf, die dem Sprachniveau nicht vollständig entsprechen.</td>
+            <td><strong>3 - Befriedigend</strong></td>
+            <td>Die Ideen sind noch leicht verbunden, aber Teile des Texts fühlen sich zusammenhanglos an. Der Text ist immer noch verständlich, weist aber klare Schwächen auf.</td>
           </tr>
           <tr>
             <td><div class="grade-chip grade-4">4</div></td>
-            <td><strong>Gut</strong></td>
-            <td>Weitgehend korrekt mit nur geringfügigen Fehlern oder leichten stilistischen Unsicherheiten. Die Aussage ist klar und dem Sprachniveau angemessen; kleinere Abweichungen beeinträchtigen die Kommunikation nicht.</td>
+            <td><strong>4 - Gut</strong></td>
+            <td>Meistens logischer Fluss. Kleine thematische Sprünge oder abrupte Übergänge können vorkommen, aber es ist immer noch leicht, dem Text zu folgen. Thematisch konsistent.</td>
           </tr>
           <tr>
             <td><div class="grade-chip grade-5">5</div></td>
-            <td><strong>Ausgezeichnet</strong></td>
-            <td>Fehlerfrei oder nahezu fehlerfrei. Grammatik, Wortschatz und Stil entsprechen vollständig dem angegebenen Sprachniveau. Der Ausdruck ist klar, präzise und natürlich.</td>
+            <td><strong>5 - Sehr gut</strong></td>
+            <td>Die Ideen fließen natürlich und logisch. Die Sätze sind thematisch klar verbunden und Bindemittel leiten den Leser. Der Text enthält keine thematischen, zeitlichen oder perspektivischen Inkonsistenzen. Kleine Ausnahmen sind erlaubt.</td>
           </tr>
         </tbody>
       </table>
