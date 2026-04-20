@@ -109,6 +109,36 @@
 }
 .overall-label { font-size: 14px; color: var(--text-muted); }
 .overall-fraction { font-size: 20px; font-weight: 500; }
+
+.rubric-table { width: 100%; border-collapse: collapse; font-size: 14px; margin-top: 0.5rem; }
+.rubric-table th {
+  text-align: left; font-weight: 500; font-size: 12px;
+  text-transform: uppercase; letter-spacing: 0.06em;
+  color: var(--text-muted); padding: 0 0.75rem 0.6rem;
+  border-bottom: 0.5px solid var(--border);
+}
+.rubric-table th:first-child { padding-left: 0; width: 52px; }
+.rubric-table td {
+  padding: 0.75rem 0.75rem;
+  border-bottom: 0.5px solid var(--border);
+  vertical-align: top; color: var(--text); line-height: 1.55;
+}
+.rubric-table tr:last-child td { border-bottom: none; }
+.rubric-table td:first-child { padding-left: 0; }
+
+.grade-chip {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 32px; height: 32px;
+  border-radius: var(--radius-md);
+  font-size: 15px; font-weight: 500;
+}
+.grade-1 { background: #fcebeb; color: #A32D2D; border: 0.5px solid rgba(163,45,45,0.2); }
+.grade-2 { background: #FAEEDA; color: #854F0B; border: 0.5px solid rgba(186,117,23,0.2); }
+.grade-3 { background: #f1efe8; color: #5F5E5A; border: 0.5px solid rgba(0,0,0,0.1); }
+.grade-4 { background: var(--accent-light); color: #3C3489; border: 0.5px solid rgba(83,74,183,0.2); }
+.grade-5 { background: #eaf3de; color: #3B6D11; border: 0.5px solid rgba(59,109,17,0.2); }
+
+
 {% endblock %}
 
 {% block content %}
@@ -124,7 +154,8 @@
 
 <div class="hero">
   <h2>Worum geht es?</h2>
-  <p>Die Studie befasst sich mit dem Thema Kohärenz, genauer gesagt der Bewertung von Kohärenz. Deshalb bitten wir Sie im folgenden immer daran zu denken, dass es wirklich <strong>nur um die Kohärenz</strong> der gegebenen Beispiele geht. Alles andere (also zum Beispile Grammatik, Rechtschreibung, etc.) ist egal, solange es nicht die Kohärenz der Texte beeinflusst.</p>
+  <p>Die Studie befasst sich mit dem Thema Kohärenz, genauer gesagt der Bewertung von Kohärenz. Deshalb bitten wir Sie im folgenden immer daran zu denken, dass es wirklich <strong>nur um die Kohärenz</strong> der gegebenen Beispiele geht. Alles andere (also zum Beispile Grammatik, Rechtschreibung, etc.) ist egal, solange es nicht die Kohärenz der Texte beeinflusst.
+  Die Texte die Sie in dieser Studie zu sehen bekommen stammen alle aus Deutschkursen und zusätzlich erhalten sie immer deas sprachniveau der Kurse und die Aufgaben-Nummer zu der die Abgabe gehört. Beziehen sie, wo möglich, diesen Kontext in ihre Bewertung ein.</p>
 </div>
 
 
@@ -136,18 +167,59 @@
 <p>
 Die Definition von Kohärenz, die wir hier benutzen ist mehr oder weniger in drei Aspekte teilbar:
 </p>
+
 <p>
-Semantische Kohärenz - Ist der Text logisch aufgebaut? Passen die Sätze inhaltlich zusammen? Ist ein Thema / eine Intention zu erkennen?
+<strong>Semantische Kohärenz</strong> - Ist der Text logisch aufgebaut? Passen die Sätze inhaltlich zusammen? Ist ein Thema / eine Intention zu erkennen?
 </p>
 <p>
-Kohäsion - Sind die Sätze gut verbunden? Benutzt der Schüler Bindemittel? (z.b. Deshalb, Außerdem, …)
+<strong>Kohäsion</strong> - Sind die Sätze gut verbunden? Benutzt der Schüler Bindemittel? (z.b. Deshalb, Außerdem, …)
 </p>
 <p>
-Grammatik - Ist der Text grammatikalisch konsistent? Sind Zeit und Perspektive konsistent?
+<strong>Konsistenz</strong> - Ist der Text inhaltlich konsistent? Gibt es Widersprüche? Sind Zeit und Perspektive konsistent?
 </p>
+
 <p>
-Kohärenz ist eine sehr subjektive Eigenschaft, und es ist nicht einfach überhaupt eine allgemeine Definition zu finden, weil jeder Leser sie ein wenig anders wahrnimmt. Damit die Bewertung von Kohärenz überhaupt sinnvoll ist, brauchen wir ein Notenschema, welches sie in den Aleitungen beider Teile der Umfrage finden können. Bitte halten Sie sich an diese.
+Kohärenz ist eine sehr subjektive Eigenschaft, und es ist nicht einfach überhaupt eine allgemeine Definition zu finden, weil jeder Leser sie ein wenig anders wahrnimmt. Damit die Bewertung von Kohärenz überhaupt sinnvoll ist, brauchen wir ein Notenschema, wie das Folgende:
   </p>
+
+<table class="rubric-table">
+        <thead>
+          <tr>
+            <th>Note</th>
+            <th>Bezeichnung</th>
+            <th>Beschreibung</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><div class="grade-chip grade-1">1</div></td>
+            <td><strong> 1 - Ungenügend</strong></td>
+            <td>Minimale bis keine logische Struktur. Der Inhalt fühlt sich zufällig und unverbunden an. </td>
+          </tr>
+          <tr>
+            <td><div class="grade-chip grade-2">2</div></td>
+            <td><strong>2 - Ausreichend</strong></td>
+            <td>Der Text springt oft zwischen Ideen. Sätze sind oft schlecht oder gar nicht verbunden. Es ist schwer dem Text zu folgen und er fühlt sich oft zusammenhanglos an.</td>
+          </tr>
+          <tr>
+            <td><div class="grade-chip grade-3">3</div></td>
+            <td><strong>3 - Befriedigend</strong></td>
+            <td>Die Ideen sind noch leicht verbunden, aber Teile des Texts fühlen sich zusammenhanglos an. Der Text ist immer noch verständlich, weist aber klare Schwächen auf.</td>
+          </tr>
+          <tr>
+            <td><div class="grade-chip grade-4">4</div></td>
+            <td><strong>4 - Gut</strong></td>
+            <td>Meistens logischer Fluss. Kleine thematische Sprünge oder abrupte Übergänge können vorkommen, aber es ist immer noch leicht, dem Text zu folgen. Thematisch konsistent.</td>
+          </tr>
+          <tr>
+            <td><div class="grade-chip grade-5">5</div></td>
+            <td><strong>5 - Sehr gut</strong></td>
+            <td>Die Ideen fließen natürlich und logisch. Die Sätze sind thematisch klar verbunden und Bindemittel leiten den Leser. Der Text enthält keine thematischen, zeitlichen oder perspektivischen Inkonsistenzen. Kleine Ausnahmen sind erlaubt.</td>
+          </tr>
+        </tbody>
+      </table>
+
+
 </div>
 
 <div class="overall-progress">
