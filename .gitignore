@@ -1,6 +1,5 @@
 .env.example
 .env
 env/*
-
-__pycache__/
+./__pycache__/*
 responses.json

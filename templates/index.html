@@ -85,6 +85,7 @@
 .part-btn.primary { background: var(--accent); color: white; border-color: var(--accent); }
 .part-btn.primary:hover { background: #3C3489; border-color: #3C3489; color: white; }
 .part-btn.done-btn { background: #eaf3de; color: #3B6D11; border-color: rgba(59,109,17,0.25); cursor: default; }
+.part-btn.disabled-btn { background: #f1efe8; color: #999; border-color: rgba(0,0,0,0.08); cursor: not-allowed; pointer-events: none; }
 
 .notice {
   background: var(--accent-light);
@@ -138,6 +139,34 @@
 .grade-4 { background: var(--accent-light); color: #3C3489; border: 0.5px solid rgba(83,74,183,0.2); }
 .grade-5 { background: #eaf3de; color: #3B6D11; border: 0.5px solid rgba(59,109,17,0.2); }
 
+.role-group { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; margin-top: 0.75rem; }
+.role-group input[type="radio"] { display: none; }
+.role-option {
+  cursor: pointer;
+  padding: 0.5rem 1.25rem;
+  border: 0.5px solid var(--border-strong);
+  border-radius: var(--radius-md);
+  font-size: 14px; font-weight: 500;
+  color: var(--text-muted); background: var(--bg);
+  transition: all 0.1s; user-select: none;
+}
+.role-option:hover { border-color: var(--accent-mid); color: var(--accent); background: var(--accent-light); }
+.role-group input[type="radio"]:checked + .role-option { background: var(--accent); border-color: var(--accent); color: white; }
+.role-save-btn {
+  background: var(--accent); color: white; border: none;
+  padding: 0.5rem 1.25rem; border-radius: var(--radius-md);
+  font-size: 14px; font-weight: 500; cursor: pointer;
+  transition: background 0.15s;
+}
+.role-save-btn:hover { background: #3C3489; }
+.role-notice {
+  background: #FAEEDA;
+  border: 0.5px solid rgba(186,117,23,0.2);
+  border-radius: var(--radius-md);
+  padding: 0.6rem 1rem;
+  font-size: 13px; color: #854F0B;
+  margin-bottom: 1rem;
+}
 
 {% endblock %}
 
@@ -154,8 +183,9 @@
 
 <div class="hero">
   <h2>Worum geht es?</h2>
-  <p>Die Studie befasst sich mit dem Thema Kohärenz, genauer gesagt der Bewertung von Kohärenz. Deshalb bitten wir Sie im folgenden immer daran zu denken, dass es wirklich <strong>nur um die Kohärenz</strong> der gegebenen Beispiele geht. Alles andere (also zum Beispile Grammatik, Rechtschreibung, etc.) ist egal, solange es nicht die Kohärenz der Texte beeinflusst.
-  Die Texte die Sie in dieser Studie zu sehen bekommen stammen alle aus Deutschkursen und zusätzlich erhalten sie immer deas sprachniveau der Kurse und die Aufgaben-Nummer zu der die Abgabe gehört. Beziehen sie, wo möglich, diesen Kontext in ihre Bewertung ein.</p>
+  <p>
+    Ziel dieser Studie ist es, die automatische Kohärenzbewertung durch ein KI-Sprachmodell zu evaluieren. Das Modell wurde mithilfe gezielter Anweisungen darauf ausgerichtet, Schülertexte hinsichtlich ihrer Kohärenz zu bewerten und seine Entscheidungen zu begründen, ähnlich wie es ein Lehrer oder Korrektor tun würde. Wir möchten herausfinden, ob diese automatisch generierten Bewertungen, Kommentare und Begründungen aus fachlicher Sicht sinnvoll und hilfreich sind.
+  </p>
 </div>
 
 
@@ -179,13 +209,13 @@ Die Definition von Kohärenz, die wir hier benutzen ist mehr oder weniger in dre
 </p>
 
 <p>
-Kohärenz ist eine sehr subjektive Eigenschaft, und es ist nicht einfach überhaupt eine allgemeine Definition zu finden, weil jeder Leser sie ein wenig anders wahrnimmt. Damit die Bewertung von Kohärenz überhaupt sinnvoll ist, brauchen wir ein Notenschema, wie das Folgende:
+Kohärenz ist eine sehr subjektive Eigenschaft, und es ist nicht einfach überhaupt eine allgemeine Definition zu finden, weil jeder Leser sie ein wenig anders wahrnimmt. Damit die Bewertung von Kohärenz überhaupt sinnvoll ist, brauchen wir ein Bewertungsschema, wie das Folgende:
   </p>
 
 <table class="rubric-table">
         <thead>
           <tr>
-            <th>Note</th>
+            <th>Punkte</th>
             <th>Bezeichnung</th>
             <th>Beschreibung</th>
           </tr>
@@ -193,33 +223,54 @@ Kohärenz ist eine sehr subjektive Eigenschaft, und es ist nicht einfach überha
         <tbody>
           <tr>
             <td><div class="grade-chip grade-1">1</div></td>
-            <td><strong> 1 - Ungenügend</strong></td>
+            <td><strong>Ungenügend</strong></td>
             <td>Minimale bis keine logische Struktur. Der Inhalt fühlt sich zufällig und unverbunden an. </td>
           </tr>
           <tr>
             <td><div class="grade-chip grade-2">2</div></td>
-            <td><strong>2 - Ausreichend</strong></td>
+            <td><strong>Ausreichend</strong></td>
             <td>Der Text springt oft zwischen Ideen. Sätze sind oft schlecht oder gar nicht verbunden. Es ist schwer dem Text zu folgen und er fühlt sich oft zusammenhanglos an.</td>
           </tr>
           <tr>
             <td><div class="grade-chip grade-3">3</div></td>
-            <td><strong>3 - Befriedigend</strong></td>
+            <td><strong>Befriedigend</strong></td>
             <td>Die Ideen sind noch leicht verbunden, aber Teile des Texts fühlen sich zusammenhanglos an. Der Text ist immer noch verständlich, weist aber klare Schwächen auf.</td>
           </tr>
           <tr>
             <td><div class="grade-chip grade-4">4</div></td>
-            <td><strong>4 - Gut</strong></td>
+            <td><strong>Gut</strong></td>
             <td>Meistens logischer Fluss. Kleine thematische Sprünge oder abrupte Übergänge können vorkommen, aber es ist immer noch leicht, dem Text zu folgen. Thematisch konsistent.</td>
           </tr>
           <tr>
             <td><div class="grade-chip grade-5">5</div></td>
-            <td><strong>5 - Sehr gut</strong></td>
+            <td><strong>Sehr gut</strong></td>
             <td>Die Ideen fließen natürlich und logisch. Die Sätze sind thematisch klar verbunden und Bindemittel leiten den Leser. Der Text enthält keine thematischen, zeitlichen oder perspektivischen Inkonsistenzen. Kleine Ausnahmen sind erlaubt.</td>
           </tr>
         </tbody>
       </table>
 
 
+</div>
+
+<div class="hero">
+  <h2>Ihre Rolle</h2>
+  <p>Bitte wählen Sie Ihre Rolle aus, bevor Sie beginnen.</p>
+  {% if not current_role %}
+  <div class="role-notice" style="margin-top:0.75rem;">Bitte wählen Sie Ihre Rolle aus, bevor Sie mit der Umfrage beginnen.</div>
+  {% endif %}
+  <form method="POST" action="/set_role" id="role-form">
+    <div class="role-group">
+      {% for rv in ['Lehrer', 'Mitarbeiter', 'Sonstige'] %}
+      <input type="radio" name="role" id="role_{{ rv }}" value="{{ rv }}"{% if current_role == rv %} checked{% endif %}>
+      <label for="role_{{ rv }}" class="role-option">{{ rv }}</label>
+      {% endfor %}
+    </div>
+  </form>
+  <script>
+    document.querySelectorAll('#role-form input[type="radio"]').forEach(function(r) {
+      r.addEventListener('change', function() { document.getElementById('role-form').submit(); });
+    });
+  </script>
 </div>
 
 <div class="overall-progress">
@@ -265,7 +316,9 @@ Kohärenz ist eine sehr subjektive Eigenschaft, und es ist nicht einfach überha
         <div class="progress-bar-fg" style="width: {{ p1_pct }}%;"></div>
       </div>
     </div>
-    {% if p1_done == p1_total %}
+    {% if not current_role %}
+      <span class="part-btn disabled-btn">Bitte wählen Sie eine Rolle</span>
+    {% elif p1_done == p1_total %}
       <a href="/part1" class="part-btn done-btn">✓ Fertig</a>
     {% elif p1_done > 0 %}
       <a href="/part1" class="part-btn primary">Weiter →</a>
@@ -303,7 +356,9 @@ Kohärenz ist eine sehr subjektive Eigenschaft, und es ist nicht einfach überha
         <div class="progress-bar-fg" style="width: {{ p2_pct }}%;"></div>
       </div>
     </div>
-    {% if p2_done == p2_total %}
+    {% if not current_role %}
+      <span class="part-btn disabled-btn">Bitte wählen Sie eine Rolle</span>
+    {% elif p2_done == p2_total %}
       <a href="/part2" class="part-btn done-btn">✓ Fertig</a>
     {% elif p2_done > 0 %}
       <a href="/part2" class="part-btn primary">Weiter →</a>

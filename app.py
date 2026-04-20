@@ -25,6 +25,7 @@ logger = logging.getLogger(__name__)
 logger.setLevel(logging.DEBUG)
 
 RESPONSES_FILE = "responses.json"
+VALID_ROLES = {"Lehrer", "Mitarbeiter", "Sonstige"}
 
 # ---------------------------------------------------------------------------
 # Survey data
@@ -125,13 +126,28 @@ def index():
     p1_done, p1_total = part_progress(user_responses, "p1", PART1_ITEMS)
     p2_done, p2_total = part_progress(user_responses, "p2", PART2_ITEMS)
 
+    current_role = user_responses.get("role", "")
     resp = make_response(render_template(
         "index.html",
         p1_done=p1_done, p1_total=p1_total,
         p2_done=p2_done, p2_total=p2_total,
+        current_role=current_role,
     ))
     get_or_create_user_id(request, resp)
     return resp
+
+@app.route("/set_role", methods=["POST"])
+def set_role():
+    user_id = request.cookies.get("survey_user_id")
+    if not user_id:
+        return redirect(url_for("index"))
+    role = request.form.get("role", "").strip()
+    if role not in VALID_ROLES:
+        return redirect(url_for("index"))
+    responses = load_responses()
+    responses.setdefault(user_id, {})["role"] = role
+    save_responses(responses)
+    return redirect(url_for("index"))
 
 # ---------------------------------------------------------------------------
 # Routes – Part 1
@@ -145,15 +161,20 @@ def part1():
 
     responses = load_responses()
     user_responses = responses.get(user_id, {})
-    num_done = len(user_responses)
-    for i, item in random.sample(list(enumerate(PART1_ITEMS)), len(PART1_ITEMS)):
+    assert(type(user_responses) == dict)
+    if not user_responses.get("role"):
+        return redirect(url_for("index"))
+    
+    num_done,total = part_progress(user_responses,'p1',PART1_ITEMS)
+    
+    for i, item in random.sample(list(enumerate(PART1_ITEMS)), total):
         if f"p1_{i}" not in user_responses:
             resp = make_response(render_template(
                 "survey.html",
                 item=item,
                 item_index=i,
                 num_done=num_done,
-                total=len(PART1_ITEMS),
+                total=total,
             ))
             resp.set_cookie("survey_user_id", user_id, max_age=60 * 60 * 24 * 30)
             return resp
@@ -168,15 +189,40 @@ def part1_submit():
         return redirect(url_for("index"))
 
     item_index = request.form.get("item_index")
+    responses = load_responses()
+    role = responses.get(user_id, {}).get("role", "")
     data = {
-        "rating_grading":   request.form.get("rating_grading"),
+        "rating_grading":   int(request.form.get("rating_grading")),
         "rating_comment":   request.form.get("rating_comment"),
         "rating_reasoning": request.form.get("rating_reasoning"),
         "general_comment":  request.form.get("general_comment", "").strip(),
+        "role":             role,
         "submitted_at":     datetime.utcnow().isoformat(),
     }
 
+    responses.setdefault(user_id, {})[f"p1_{item_index}"] = data
+    save_responses(responses)
+    append_response("p1", user_id, item_index, data)
+    return redirect(url_for("part1"))
+
+
+@app.route("/part1/skip", methods=["POST"])
+def part1_skip():
+    user_id = request.cookies.get("survey_user_id")
+    if not user_id:
+        return redirect(url_for("index"))
+    item_index = request.form.get("item_index")
     responses = load_responses()
+
+    skip_reason = request.form.get('skip_reason') 
+
+    role = responses.get(user_id, {}).get("role", "")
+    data = {
+        "skipped":      True,
+        "role":         role,
+        "submitted_at": datetime.utcnow().isoformat(),
+        "skip_reason":skip_reason
+    }
     responses.setdefault(user_id, {})[f"p1_{item_index}"] = data
     save_responses(responses)
     append_response("p1", user_id, item_index, data)
@@ -194,17 +240,21 @@ def part2():
 
     responses = load_responses()
     user_responses = responses.get(user_id, {})
+    if not user_responses.get("role"):
+        return redirect(url_for("index"))
 
-    num_done = len(user_responses)
+    #num_done = sum( 1 if key.starts_with("p2_") else 0 for key in user_responses)
 
-    for i, item in random.sample(list(enumerate(PART2_ITEMS)),len(PART2_ITEMS)):
+    num_done,total = part_progress(user_responses,"p2",PART2_ITEMS)
+
+    for i, item in random.sample(list(enumerate(PART2_ITEMS)),total):
         if f"p2_{i}" not in user_responses:
             resp = make_response(render_template(
                 "annotate.html",
                 item=item,
                 item_index=i,
                 num_done=num_done,
-                total=len(PART2_ITEMS),
+                total=total,
             ))
             resp.set_cookie("survey_user_id", user_id, max_age=60 * 60 * 24 * 30)
             return resp
@@ -219,15 +269,38 @@ def part2_submit():
         return redirect(url_for("index"))
 
     item_index = request.form.get("item_index")
+    responses = load_responses()
+    role = responses.get(user_id, {}).get("role", "")
     data = {
         "grading":         request.form.get("grading", "").strip(),
         "comment":         request.form.get("comment", "").strip(),
         "reasoning":       request.form.get("reasoning", "").strip(),
         "general_comment": request.form.get("general_comment", "").strip(),
+        "role":            role,
         "submitted_at":    datetime.utcnow().isoformat(),
     }
 
+    responses.setdefault(user_id, {})[f"p2_{item_index}"] = data
+    save_responses(responses)
+    append_response("p2", user_id, item_index, data)
+    return redirect(url_for("part2"))
+
+
+@app.route("/part2/skip", methods=["POST"])
+def part2_skip():
+    user_id = request.cookies.get("survey_user_id")
+    if not user_id:
+        return redirect(url_for("index"))
+    item_index = request.form.get("item_index")
     responses = load_responses()
+    role = responses.get(user_id, {}).get("role", "")
+    skip_reason = request.form.get('skip_reason')
+    data = {
+        "skipped":      True,
+        "role":         role,
+        "submitted_at": datetime.utcnow().isoformat(),
+        "skip_reason": skip_reason
+    }
     responses.setdefault(user_id, {})[f"p2_{item_index}"] = data
     save_responses(responses)
     append_response("p2", user_id, item_index, data)

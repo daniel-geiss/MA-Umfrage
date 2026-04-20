@@ -121,6 +121,13 @@ textarea:focus { outline: none; border-color: var(--accent-mid); }
 }
 .submit-btn:hover { background: #3C3489; }
 .submit-btn:disabled { background: var(--border); color: var(--text-muted); cursor: not-allowed; }
+.skip-btn {
+  background: none; border: none; padding: 0;
+  font-size: 13px; color: var(--text-muted); cursor: pointer;
+  text-decoration: underline; text-decoration-style: dotted;
+  align-self: center; transition: color 0.15s;
+}
+.skip-btn:hover { color: var(--text); }
 
 /* ── Modal overlay ── */
 .modal-backdrop {
@@ -208,6 +215,43 @@ textarea:focus { outline: none; border-color: var(--accent-mid); }
   transition: background 0.15s;
 }
 .modal-confirm:hover { background: #3C3489; }
+
+.modal-section-title {
+  font-size: 12px; font-weight: 500;
+  text-transform: uppercase; letter-spacing: 0.07em;
+  color: var(--text-muted); margin: 1.25rem 0 0.6rem;
+}
+
+
+
+.criteria-table { width: 100%; border-collapse: collapse; font-size: 14px; margin-bottom: 0; }
+.criteria-table th {
+  text-align: left; font-weight: 500; font-size: 12px;
+  text-transform: uppercase; letter-spacing: 0.06em;
+  color: var(--text-muted); padding: 0 0.75rem 0.6rem;
+  border-bottom: 0.5px solid var(--border);
+}
+.criteria-table th:first-child { padding-left: 0; width: 120px; }
+.criteria-table td {
+  padding: 0.75rem 0.75rem;
+  border-bottom: 0.5px solid var(--border);
+  vertical-align: top; color: var(--text); line-height: 1.55;
+}
+.criteria-table tr:last-child td { border-bottom: none; }
+.criteria-table td:first-child { padding-left: 0; }
+
+
+.crit-label {
+  display: inline-block;
+  font-size: 12px; font-weight: 500;
+  padding: 3px 10px; border-radius: var(--radius-md);
+  white-space: nowrap;
+}
+.crit-grading { background: var(--accent-light); color: #3C3489; border: 0.5px solid rgba(83,74,183,0.2); }
+.crit-comment { background: #FAEEDA; color: #854F0B; border: 0.5px solid rgba(186,117,23,0.2); }
+.crit-reasoning { background: #eaf3de; color: #3B6D11; border: 0.5px solid rgba(59,109,17,0.2); }
+
+
 {% endblock %}
 
 {% block content %}
@@ -216,17 +260,45 @@ textarea:focus { outline: none; border-color: var(--accent-mid); }
 <div class="modal-backdrop" id="rubric-backdrop" role="dialog" aria-modal="true" aria-labelledby="rubric-title">
   <div class="modal">
     <div class="modal-header">
-      <h2 id="rubric-title">Bewertungsskala: 1–5</h2>
+      <h2 id="rubric-title">Anleitung zu Teil 2:</h2>
       <button class="modal-close" id="modal-close-btn" aria-label="Schliessen">&times;</button>
     </div>
     <p class="modal-intro">
-      Verwenden Sie die folgende Skala, wenn Sie die Kohärenz eines Beispiels bewerten.
-      Bewerten Sie <strong>ausschließlich Kohärenz</strong> und <strong>nicht</strong> Grammatik, Rechtschreibung, oder andere Eigenschaften.
-    </p>
+      Falls Sie den ersten Teil bearbeitet haben, haben Sie bereites automatisch generierte Bewertungen gesehen. Im zweiten Teil schlüpfen Sie in die Rolle des Ki-Modells. 
+      Diesmal vergeben Sie eine <strong>Punktzahl</strong>, einen <strong>Kommentar</strong>, und ihren <strong>inneren Monolog</strong>. 
+      
+      <div class="modal-section-title">Was Sie bewerten</div>
+      <table class="criteria-table">
+        <thead>
+          <tr>
+            <th>Element</th>
+            <th>Was ist zu beurteilen?</th>
+            <th>Leitfrage</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="crit-label crit-grading">Bewertung</span></td>
+            <td>Ihre Bewertung der Kohärenz in dem bereits bekannten Punkteschema.</td>
+            <td>Welche Punktzahl beschreibt das Beispiel am Besten?</td>
+          </tr>
+          <tr>
+            <td><span class="crit-label crit-comment">Kommentar</span></td>
+            <td>Der kurze Begleitkommentar, der die Bewerung begründet.</td>
+            <td>Schreiben Sie einen Kommentar, der kurz erklärt warum Sie die Punktzahl vergeben haben. </td>
+          </tr>
+          <tr>
+            <td><span class="crit-label crit-reasoning">Innerer Monolog</span></td>
+            <td>Beschreiben Sie <strong>wie</strong> Sie zu der Punktzahl gelangt sind. Sie können gerne Stichpunkte schreiben.</td>
+            <td>Worauf haben Sie geachtet? Welche Textpassagen waren besonders auffällig? Wie genau kam Ihre entscheidung zu Stande?</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="modal-section-title">Das Bewertungsschema</div>
     <table class="rubric-table">
       <thead>
         <tr>
-          <th>Note</th>
+          <th>Punktzahl</th>
           <th>Bezeichnung</th>
           <th>Beschreibung</th>
         </tr>
@@ -234,27 +306,27 @@ textarea:focus { outline: none; border-color: var(--accent-mid); }
       <tbody>
           <tr>
             <td><div class="grade-chip grade-1">1</div></td>
-            <td><strong> 1 - Ungenügend</strong></td>
+            <td><strong>Ungenügend</strong></td>
             <td>Minimale bis keine logische Struktur. Der Inhalt fühlt sich zufällig und unverbunden an. </td>
           </tr>
           <tr>
             <td><div class="grade-chip grade-2">2</div></td>
-            <td><strong>2 - Ausreichend</strong></td>
+            <td><strong>Ausreichend</strong></td>
             <td>Der Text springt oft zwischen Ideen. Sätze sind oft schlecht oder gar nicht verbunden. Es ist schwer dem Text zu folgen und er fühlt sich oft zusammenhanglos an.</td>
           </tr>
           <tr>
             <td><div class="grade-chip grade-3">3</div></td>
-            <td><strong>3 - Befriedigend</strong></td>
+            <td><strong>Befriedigend</strong></td>
             <td>Die Ideen sind noch leicht verbunden, aber Teile des Texts fühlen sich zusammenhanglos an. Der Text ist immer noch verständlich, weist aber klare Schwächen auf.</td>
           </tr>
           <tr>
             <td><div class="grade-chip grade-4">4</div></td>
-            <td><strong>4 - Gut</strong></td>
+            <td><strong>Gut</strong></td>
             <td>Meistens logischer Fluss. Kleine thematische Sprünge oder abrupte Übergänge können vorkommen, aber es ist immer noch leicht, dem Text zu folgen. Thematisch konsistent.</td>
           </tr>
           <tr>
             <td><div class="grade-chip grade-5">5</div></td>
-            <td><strong>5 - Sehr gut</strong></td>
+            <td><strong>Sehr gut</strong></td>
             <td>Die Ideen fließen natürlich und logisch. Die Sätze sind thematisch klar verbunden und Bindemittel leiten den Leser. Der Text enthält keine thematischen, zeitlichen oder perspektivischen Inkonsistenzen. Kleine Ausnahmen sind erlaubt.</td>
           </tr>
         </tbody>
@@ -286,7 +358,7 @@ textarea:focus { outline: none; border-color: var(--accent-mid); }
 
   <div class="annotation-section">
     <h3>Ihre Annotation</h3>
-    <p class="section-desc">Wählen Sie die Note aus dem Notenschema, die der Kohärenz des Textes am besten entspricht. Das Notenschema definiert, was wir unter Kohärenz verstehen — bitte orientieren Sie sich daran.</p>
+    <p class="section-desc">Vergeben Sie 1-5 Punkte, so dass es dem Text am besten entspricht. Das Bewertungsschema definiert, was wir unter Kohärenz verstehen — bitte orientieren Sie sich daran.</p>
 
     <div class="field-group">
       <div class="grading-label-row">
@@ -323,7 +395,7 @@ textarea:focus { outline: none; border-color: var(--accent-mid); }
     <div class="field-group">
       <label for="reasoning">Begründung</label>
       <span class="field-hint">Erläutern Sie Ihre Bewertung Schritt für Schritt. Was hindert / fördert die Kohärenz in dem Beispiel? Wie sind sie zu Iherer Bewertung gekommen? </span>
-      <textarea name="reasoning" id="reasoning" rows="5" placeholder="z.B. Besonders ausschlaggebend für die Note war... " required></textarea>
+      <textarea name="reasoning" id="reasoning" rows="5" placeholder="z.B. Besonders ausschlaggebend für die Punktzahl war... " required></textarea>
     </div>
 
     <hr class="divider">
@@ -334,13 +406,40 @@ textarea:focus { outline: none; border-color: var(--accent-mid); }
     </div>
   </div>
 
-  <div class="form-actions">
-    <span class="required-note">Alle Felder außer dem allgemeinen Kommentar sind erforderlich</span>
-    <button type="submit" class="submit-btn" id="submit-btn" disabled>
+</form>
+
+<form method="POST" action="/part2/skip" id="skip-form">
+  <input type="hidden" name="item_index" value="{{ item_index }}">
+  <input type="hidden" name="skip_reason" id="skip-reason-hidden" value="">
+</form>
+
+<!-- Skip reason modal -->
+<div class="modal-backdrop" id="skip-backdrop">
+  <div class="modal" style="max-width:440px;">
+    <div class="modal-header">
+      <h2>Beispiel überspringen</h2>
+      <button class="modal-close" id="skip-cancel-x">&times;</button>
+    </div>
+    <div class="modal-intro">
+      Möchten Sie einen Grund angeben, warum Sie dieses Beispiel überspringen? <span style="color:var(--text-muted);">(optional)</span>
+    </div>
+    <textarea id="skip-reason-input" rows="3" placeholder="z. B. Ich bin mit dem Thema nicht vertraut …" style="margin-bottom:1.25rem;"></textarea>
+    <div class="modal-footer" style="gap:8px;">
+      <button class="modal-confirm" style="background:var(--border);color:var(--text);" id="skip-cancel-btn">Abbrechen</button>
+      <button class="modal-confirm" id="skip-confirm-btn">Überspringen</button>
+    </div>
+  </div>
+</div>
+
+<div class="form-actions">
+  <span class="required-note">Alle Felder außer dem allgemeinen Kommentar sind erforderlich</span>
+  <div style="display:flex; flex-direction:column; align-items:flex-end; gap:6px;">
+    <button type="submit" form="annotate-form" class="submit-btn" id="submit-btn" disabled>
       {% if num_done + 1 < total %}Nächstes Beispiel →{% else %}Teil 2 abschließen →{% endif %}
     </button>
+    <button type="submit" form="skip-form" class="skip-btn">Überspringen</button>
   </div>
-</form>
+</div>
 
 <script>
   const COOKIE_KEY = 'rubric_seen';
@@ -401,5 +500,21 @@ textarea:focus { outline: none; border-color: var(--accent-mid); }
 
   form.addEventListener('change', checkComplete);
   form.addEventListener('input', checkComplete);
+
+  // Skip reason modal
+  const skipBackdrop = document.getElementById('skip-backdrop');
+  document.querySelector('.skip-btn').addEventListener('click', function(e) {
+    e.preventDefault();
+    document.getElementById('skip-reason-input').value = '';
+    skipBackdrop.classList.add('visible');
+  });
+  function closeSkipModal() { skipBackdrop.classList.remove('visible'); }
+  document.getElementById('skip-cancel-btn').addEventListener('click', closeSkipModal);
+  document.getElementById('skip-cancel-x').addEventListener('click', closeSkipModal);
+  skipBackdrop.addEventListener('click', function(e) { if (e.target === skipBackdrop) closeSkipModal(); });
+  document.getElementById('skip-confirm-btn').addEventListener('click', function() {
+    document.getElementById('skip-reason-hidden').value = document.getElementById('skip-reason-input').value.trim();
+    document.getElementById('skip-form').submit();
+  });
 </script>
 {% endblock %}

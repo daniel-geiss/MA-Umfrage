@@ -54,11 +54,11 @@ CREDENTIALS_JSON = os.environ.get("GOOGLE_CREDENTIALS_JSON", "")
 
 # Column headers for each sheet tab
 PART1_HEADERS = [
-    "timestamp", "user_id", "item_index",
+    "timestamp", "user_id", "item_index", "role", "skipped", "skip_reason",
     "rating_grading", "rating_comment", "rating_reasoning", "general_comment",
 ]
 PART2_HEADERS = [
-    "timestamp", "user_id", "item_index",
+    "timestamp", "user_id", "item_index", "role", "skipped", "skip_reason",
     "grading", "comment", "reasoning", "general_comment",
 ]
 
@@ -144,6 +144,9 @@ def _do_append(part: str, user_id: str, item_index: str, entry: dict) -> None:
                 now,
                 user_id,
                 item_index,
+                entry.get("role", ""),
+                "ja" if entry.get("skipped") else "",
+                entry.get("skip_reason", ""),
                 entry.get("rating_grading", ""),
                 entry.get("rating_comment", ""),
                 entry.get("rating_reasoning", ""),
@@ -158,6 +161,9 @@ def _do_append(part: str, user_id: str, item_index: str, entry: dict) -> None:
                 now,
                 user_id,
                 item_index,
+                entry.get("role", ""),
+                "ja" if entry.get("skipped") else "",
+                entry.get("skip_reason",""),
                 entry.get("grading", ""),
                 entry.get("comment", ""),
                 entry.get("reasoning", ""),
@@ -234,11 +240,15 @@ def load_from_sheet() -> dict:
                     idx  = r.get("item_index", "")
                     if not uid or idx == "":
                         continue
-                    responses.setdefault(uid, {})[f"p1_{idx}"] = {
+                    user_data = responses.setdefault(uid, {})
+                    if r.get("role"):
+                        user_data["role"] = r.get("role")
+                    user_data[f"p1_{idx}"] = {
                         "rating_grading":   r.get("rating_grading", ""),
                         "rating_comment":   r.get("rating_comment", ""),
                         "rating_reasoning": r.get("rating_reasoning", ""),
                         "general_comment":  r.get("general_comment", ""),
+                        "role":             r.get("role", ""),
                         "submitted_at":     r.get("timestamp", ""),
                     }
             logger.info("sheets_sync: loaded %d Part 1 rows from sheet.",
@@ -262,11 +272,15 @@ def load_from_sheet() -> dict:
                     idx  = r.get("item_index", "")
                     if not uid or idx == "":
                         continue
-                    responses.setdefault(uid, {})[f"p2_{idx}"] = {
+                    user_data = responses.setdefault(uid, {})
+                    if r.get("role"):
+                        user_data["role"] = r.get("role")
+                    user_data[f"p2_{idx}"] = {
                         "grading":         r.get("grading", ""),
                         "comment":         r.get("comment", ""),
                         "reasoning":       r.get("reasoning", ""),
                         "general_comment": r.get("general_comment", ""),
+                        "role":            r.get("role", ""),
                         "submitted_at":    r.get("timestamp", ""),
                     }
             logger.info("sheets_sync: loaded %d Part 2 rows from sheet.",
