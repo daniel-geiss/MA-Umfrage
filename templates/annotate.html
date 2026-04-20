@@ -221,7 +221,7 @@ textarea:focus { outline: none; border-color: var(--accent-mid); }
     </div>
     <p class="modal-intro">
       Verwenden Sie die folgende Skala, wenn Sie die Kohärenz eines Beispiels bewerten.
-      Bewerten Sie <strong>ausschließlich Kohärenz</strong>, Grammakik, Rechtschreibung, und andere Eigenschaften sind nicht relevant.
+      Bewerten Sie <strong>ausschließlich Kohärenz</strong> und <strong>nicht</strong> Grammatik, Rechtschreibung, oder andere Eigenschaften.
     </p>
     <table class="rubric-table">
       <thead>
@@ -286,7 +286,7 @@ textarea:focus { outline: none; border-color: var(--accent-mid); }
 
   <div class="annotation-section">
     <h3>Ihre Annotation</h3>
-    <p class="section-desc">Lesen Sie das obige Beispiel und vergeben Sie eine eigene Bewertung, einen Kommentar und eine Begründung.</p>
+    <p class="section-desc">Lesen Sie das obige Beispiel und suchen sie die Note aus der Skala aus, welche die Kohärenz des Beispiels am besten beschreibt.</p>
 
     <div class="field-group">
       <div class="grading-label-row">
@@ -300,7 +300,7 @@ textarea:focus { outline: none; border-color: var(--accent-mid); }
           Bewertungsskala ansehen
         </button>
       </div>
-      <span class="field-hint">Wie würden Sie dieses Beispiel insgesamt bewerten?</span>
+      <span class="field-hint">Wie würden Sie die Kohärenz dieses Beispiels bewerten?</span>
       <div class="star-group" role="radiogroup" aria-label="Beispiel bewerten">
         {% for i in range(1, 6) %}
         <input type="radio" name="grading" id="gr_{{ i }}" value="{{ i }}" required>
@@ -322,7 +322,7 @@ textarea:focus { outline: none; border-color: var(--accent-mid); }
 
     <div class="field-group">
       <label for="reasoning">Begründung</label>
-      <span class="field-hint">Erläutern Sie Ihre Bewertung Schritt für Schritt. Was hindert / fördert die Kohärenz in dem Beispiel? </span>
+      <span class="field-hint">Erläutern Sie Ihre Bewertung Schritt für Schritt. Was hindert / fördert die Kohärenz in dem Beispiel? Wie sind sie zu Iherer Bewertung gekommen? </span>
       <textarea name="reasoning" id="reasoning" rows="5" placeholder="z.B. Besonders ausslag gebend für die Note war... " required></textarea>
     </div>
 
