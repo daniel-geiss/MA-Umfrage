@@ -56,8 +56,8 @@ def get_part_1():
 
     samples['reasoning'] = [open(f'./data/clipped_reasoning/{id}.txt').read() for id in PART_1_IDS]
     
-    for b in [clip in r for clip,r in zip(samples['reasoning'], samples['llm_reason'])]:
-        print(b)
+#    for b in [clip in r for clip,r in zip(samples['reasoning'], samples['llm_reason'])]:
+#        print(b)
 
     samples['id'] = samples['id'].map(_strip_id)
     samples['example_text'] = samples['example_text'].map(str.strip)
@@ -66,8 +66,4 @@ def get_part_1():
 
 
 if __name__ == "__main__":
-
-    rows = get_part_1()
-
-    print(get_part_1())
 
