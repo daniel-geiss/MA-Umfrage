@@ -63,7 +63,3 @@ def get_part_1():
     samples['example_text'] = samples['example_text'].map(str.strip)
     samples['reasoning'] = samples['reasoning'].map(lambda r: _collapse_whitespace(_cleanup(r)))
     return samples.to_dict(orient='records')
-
-
-if __name__ == "__main__":
-
