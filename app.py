@@ -192,7 +192,7 @@ def part1_submit():
     responses = load_responses()
     role = responses.get(user_id, {}).get("role", "")
     data = {
-        "rating_grading":   int(request.form.get("rating_grading")),
+        "rating_grading":   request.form.get("rating_grading"),
         "rating_comment":   request.form.get("rating_comment"),
         "rating_reasoning": request.form.get("rating_reasoning"),
         "general_comment":  request.form.get("general_comment", "").strip(),
